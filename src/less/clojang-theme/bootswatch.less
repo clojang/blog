@@ -18,7 +18,7 @@ body {
 .navbar {
   .box-shadow(none);
   border: none;
-  font-size: @font-size-small;
+  font-size: @navbar-font-size;
 
   &-default {
 
@@ -95,7 +95,7 @@ body {
   .box-shadow(none);
 
   > li > a {
-    font-size: @font-size-small;
+    font-size: @dropdown-font-size;
   }
 }
 
@@ -303,17 +303,21 @@ label,
   font-size: 180%;
 }
 
+.hjjs {
+  background: none !important;
+}
+
 .well {
   .box-shadow(none);
-  background-color: @dark-input-bg;
-  color: @dark-input-color;
-  border-color: @dark-input-border;
+  background-color: @well-bg;
+  color: @well-color;
+  border: @well-border;
 }
 
 .light-well {
-  background-color: @input-bg;
-  color: @input-color;
-  border-color: @input-border;
+  background-color: @light-well-bg;
+  color: @light-well-color;
+  border: @light-well-border;
 }
 
 a.list-group-item {
@@ -387,4 +391,21 @@ a.list-group-item {
   &-title {
     border: none;
   }
+}
+
+footer {
+  color: @footer-color;
+}
+
+footer .copyright {
+  word-spacing: @footer-copyright-word-spacing;
+  font-size: @footer-copyright-font-size;
+}
+
+footer .footer-buffer-top {
+  padding: 1em;
+}
+
+footer .footer-buffer-bottom {
+  padding: 1em;
 }
