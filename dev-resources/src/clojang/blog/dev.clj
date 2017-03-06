@@ -18,6 +18,7 @@
             [clojure.tools.namespace.repl :as repl]
             [clojure.walk :refer [macroexpand-all]]
             [clojusc.twig :as logger]
+            [markdown.core :as md]
             [selmer.parser :as selmer]
             [taoensso.timbre :as log]
             [trifl.java :as java]))

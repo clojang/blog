@@ -11,6 +11,7 @@
     [clojusc/env-ini "0.3.0-SNAPSHOT"]
     [clojusc/rfc5322 "0.3.0-SNAPSHOT"]
     [clojusc/trifl "0.1.0-SNAPSHOT"]
+    [markdown-clj "0.9.97"]
     [clojusc/twig "0.3.1-SNAPSHOT"]
     [me.raynes/cegdown "0.1.1"]
     [org.clojure/clojure "1.8.0"]
