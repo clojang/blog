@@ -42,6 +42,14 @@
       "templates/post.html"
       (data/post req))))
 
+(defn design
+  ([]
+    (design {}))
+  ([req]
+    (selmer/render-file
+      "templates/design.html"
+      (data/base req))))
+
 (defn bootstrap-theme
   ([]
     (bootstrap-theme {}))
