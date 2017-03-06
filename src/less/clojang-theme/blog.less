@@ -19,15 +19,6 @@ h6, .h6 {
   font-weight: bold;
 }
 
-/*
- * Override Bootstrap's default container.
- */
-
-@media (min-width: 1200px) {
-  .container {
-    width: 970px
-;  }
-}
 
 /*
  * Masthead for nav
@@ -46,6 +37,7 @@ h6, .h6 {
   padding: 10px;
   font-weight: 500;
 }
+
 .blog-nav-item:hover,
 .blog-nav-item:focus {
   text-decoration: none;
@@ -78,12 +70,14 @@ h6, .h6 {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 .blog-title {
   margin-top: 30px;
   margin-bottom: 0;
   font-size: 60px;
   font-weight: normal;
 }
+
 .blog-description {
   font-size: 20px;
 }
@@ -100,29 +94,20 @@ h6, .h6 {
 /* Sidebar modules for boxing content */
 .sidebar-module {
   padding: 15px;
-  margin: 0 -15px 15px;
+  margin-top: 50px;
 }
+
 .sidebar-module-inset {
   padding: 15px;
   border-radius: 4px;
 }
+
 .sidebar-module-inset p:last-child,
 .sidebar-module-inset ul:last-child,
 .sidebar-module-inset ol:last-child {
   margin-bottom: 0;
 }
 
-/* Pagination */
-.pager {
-  margin-bottom: 60px;
-  text-align: left;
-}
-.pager > li > a {
-  width: 140px;
-  padding: 10px 20px;
-  text-align: center;
-  border-radius: 30px;
-}
 
 /*
  * Blog posts
@@ -131,23 +116,31 @@ h6, .h6 {
 .blog-post {
   margin-bottom: 60px;
 }
+
+.blog-post .page-header {
+  border-bottom: none;
+}
+
 .blog-post-title {
   margin-bottom: 5px;
   font-size: 40px;
 }
+
 .blog-post-meta {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-/*
- * Footer
- */
-
-.blog-footer {
-  padding: 40px 0;
-  text-align: center;
-  border-top: 1px solid #e5e5e5;
+.blog-post-meta > .date,
+.blog-post-meta > .author {
+  word-spacing: 0.3em;
+  font-style: italic;
+  font-size: 110%;
 }
-.blog-footer p:last-child {
-  margin-bottom: 0;
+
+.blog-post-meta .lead {
+  font-size: 140%;
+}
+
+.blog-post .well {
+  background-color: lighten(@well-bg, 10%);
 }
