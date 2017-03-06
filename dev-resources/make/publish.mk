@@ -17,6 +17,7 @@ blog-pre:
 blog-css:
 	@echo "\nGenerating CSS with LESS ..."
 	@lessc $(LESS_DIR)/$(COLOUR_THEME).less $(CSS_DIR)/styles.css
+	@lessc $(LESS_DIR)/blog.less $(CSS_DIR)/blog.css
 
 blog-clojure:
 	@blog gen
