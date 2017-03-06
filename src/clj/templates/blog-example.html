@@ -1,7 +1,7 @@
 {% extends "templates/base.html" %}
 
 {% block post_css %}
-<link href="/css/blog.css" rel="stylesheet">
+<link href="/assets/css/blog.css" rel="stylesheet">
 {% endblock %}
 
 
@@ -32,7 +32,45 @@
             <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
             <h3>Sub-heading</h3>
             <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <pre><code>Example code block</code></pre>
+
+            <p>Clojure:</p>
+<pre><code class="clojure">&#40;defn -main
+  &quot;This is the entry point for the Clojang blog Application.
+
+  It manages both the running of the application and related services, as well
+  as use of the application name spaces for running tasks on the comand line.
+
+  The entry point is executed from the command line when calling `lein run`.&quot;
+  &#40;&#91;&#93;
+    &#40;-main :web&#41;&#41;
+  &#40;&#91;mode &amp; args&#93;
+    ;; Set the initial log-level before the components set the log-levels for
+    ;; the configured namespaces
+    &#40;logger/set-level! &#91;'clojang.blog&#93; &#40;config/log-level&#41;&#41;
+    &#40;log/infof &quot;Running the Clojang blog application in %s mode ...&quot; mode&#41;
+    &#40;log/debug &quot;Passing the following args to the application:&quot; args&#41;
+    &#40;case &#40;keyword mode&#41;
+      :web &#40;web/run&#41;
+      :cli &#40;cli/run &#40;map keyword args&#41;&#41;&#41;&#41;&#41;
+</code></pre>
+            <p>LFE:</p>
+<pre><code class="lisp">&#40;defun start &#40;&#41;
+  &#40;logjam:start&#41;
+  &#40;logjam:set-level 'lager&#95;console&#95;backend
+                    &#40;lcfg:get-in &#40;lcfg-file:read-local&#41; '&#40;logging log-level&#41;&#41;&#41;
+  &#40;application:load 'lfecljapp&#41;
+  &#40;application:start 'lfecljapp&#41;&#41;
+
+&#40;defun start &#40;start-type args&#41;
+  &#40;let &#40;&#40;result &#40;lfeclj-sup:start&#95;link&#41;&#41;&#41;
+    &#40;case result
+      &#40;`#&#40;ok ,pid&#41; result&#41;
+      &#40;&#95; `#&#40;error ,result&#41;&#41;&#41;&#41;&#41;
+
+&#40;defun stop &#40;&#95;state&#41;
+  'ok&#41;
+</code></pre>
+
             <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
             <h3>Sub-heading</h3>
             <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>

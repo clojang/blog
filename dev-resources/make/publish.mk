@@ -1,5 +1,5 @@
 DOCS_DIR = $(ROOT_DIR)/docs
-CSS_DIR = $(DOCS_DIR)/css
+CSS_DIR = $(DOCS_DIR)/assets/css
 REPO = $(shell git config --get remote.origin.url)
 LOCAL_DOCS_HOST = localhost
 LOCAL_DOCS_PORT = $(lastword $(shell grep dev-port project.clj))
