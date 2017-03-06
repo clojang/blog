@@ -11,7 +11,8 @@
    "/credits.html" (page/credits)
    "/starter.html" (page/starter)
    "/post.html" (page/post)
-   "/design/bootstrap-theme.html" (page/bootstrap-theme)})
+   "/design/bootstrap-theme.html" (page/bootstrap-theme)
+   "/design/blog-example.html" (page/blog-example)})
 
 (def app (stasis/serve-pages routes))
 

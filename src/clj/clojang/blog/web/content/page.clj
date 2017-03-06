@@ -49,3 +49,11 @@
     (selmer/render-file
       "templates/bootstrap-theme.html"
       (data/base req))))
+
+(defn blog-example
+  ([]
+    (blog-example {}))
+  ([req]
+    (selmer/render-file
+      "templates/blog-example.html"
+      (data/base req))))
