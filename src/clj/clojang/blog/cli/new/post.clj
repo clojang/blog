@@ -1,7 +1,7 @@
 (ns clojang.blog.cli.new.post
   (:require [clojure.pprint :refer [pprint]]
-            [clojang.blog.stub :as stub]
-            [clojang.blog.util :as util]
+            [dragon.stub :as stub]
+            [dragon.util :as util]
             [taoensso.timbre :as log]
             [trifl.docs :as docs]))
 

@@ -1,67 +1,51 @@
 (ns clojang.blog.web.content.page
   (:require [clojang.blog.web.content.data :as data]
-            [selmer.parser :as selmer]))
+            [dragon.web.content :as content]))
 
 (defn front-page
-  ([]
-    (front-page {}))
-  ([req]
-    (selmer/render-file
-      "templates/front-page.html"
-      (data/index req))))
+  []
+  (content/render
+    "templates/front-page.html"
+    data/index))
 
 (defn about
-  ([]
-    (about {}))
-  ([req]
-    (selmer/render-file
-      "templates/about.html"
-      (data/about req))))
+  []
+  (content/render
+    "templates/about.html"
+    data/about))
 
 (defn credits
-  ([]
-    (credits {}))
-  ([req]
-    (selmer/render-file
-      "templates/credits.html"
-      (data/credits req))))
+  []
+  (content/render
+    "templates/credits.html"
+    data/credits))
 
 (defn starter
-  ([]
-    (starter {}))
-  ([req]
-    (selmer/render-file
-      "templates/starter.html"
-      (data/starter req))))
+  []
+  (content/render
+    "templates/starter.html"
+    data/starter))
 
 (defn post
-  ([]
-    (post {}))
-  ([req]
-    (selmer/render-file
-      "templates/post.html"
-      (data/post req))))
+  []
+  (content/render
+    "templates/post.html"
+    data/post))
 
 (defn design
-  ([]
-    (design {}))
-  ([req]
-    (selmer/render-file
-      "templates/design.html"
-      (data/base req))))
+  []
+  (content/render
+    "templates/design.html"
+    data/base))
 
 (defn bootstrap-theme
-  ([]
-    (bootstrap-theme {}))
-  ([req]
-    (selmer/render-file
-      "templates/bootstrap-theme.html"
-      (data/base req))))
+  []
+  (content/render
+    "templates/bootstrap-theme.html"
+    data/base))
 
 (defn blog-example
-  ([]
-    (blog-example {}))
-  ([req]
-    (selmer/render-file
-      "templates/blog-example.html"
-      (data/base req))))
+  []
+  (content/render
+    "templates/blog-example.html"
+    data/base))

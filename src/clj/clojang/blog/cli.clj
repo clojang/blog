@@ -3,9 +3,11 @@
             [clojusc.twig :as logger]
             [clojang.blog.cli.new :as new]
             [clojang.blog.cli.show :as show]
-            [clojang.blog.generator :as generator]
-            [clojang.blog.util :as util]
-            [clojang.blog.web :as web]
+            [clojang.blog.routes :refer [routes]]
+            [dragon.config :as config]
+            [dragon.generator :as gen]
+            [dragon.util :as util]
+            [dragon.web :as web]
             [taoensso.timbre :as log]
             [trifl.core :refer [sys-prop]]
             [trifl.docs :as docs]))
@@ -52,8 +54,8 @@
   (case cmd
     :new (new/run args)
     :show (show/run args)
-    :gen (generator/run args)
-    :run (web/run)
+    :gen (gen/run routes (config/output-dir))
+    :run (web/run routes (config/port))
     :help (help-cmd args)
     :version (version-cmd)
     ;; Aliases

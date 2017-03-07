@@ -1,8 +1,9 @@
 (ns clojang.blog.main
   (:require [clojusc.twig :as logger]
             [clojang.blog.cli :as cli]
-            [clojang.blog.config :as config]
-            [clojang.blog.web :as web]
+            [clojang.blog.routes :refer [routes]]
+            [dragon.config :as config]
+            [dragon.web :as web]
             [taoensso.timbre :as log])
   (:gen-class))
 
@@ -18,9 +19,9 @@
   ([mode & args]
     ;; Set the initial log-level before the components set the log-levels for
     ;; the configured namespaces
-    (logger/set-level! ['clojang.blog] (config/log-level))
+    (logger/set-level! '[clojang.blog] (config/log-level))
     (log/infof "Running the Clojang blog application in %s mode ..." mode)
     (log/debug "Passing the following args to the application:" args)
     (case (keyword mode)
-      :web (web/run)
+      :web (web/run routes (config/port))
       :cli (cli/run (map keyword args)))))

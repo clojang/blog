@@ -2,7 +2,7 @@
   (:require [clojure.pprint :refer [pprint]]
             [clojusc.twig :as logger]
             [clojang.blog.cli.new.post :as post]
-            [clojang.blog.util :as util]
+            [dragon.util :as util]
             [taoensso.timbre :as log]
             [trifl.docs :as docs]))
 

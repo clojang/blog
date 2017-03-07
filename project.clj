@@ -11,6 +11,7 @@
     [clojusc/env-ini "0.3.0-SNAPSHOT"]
     [clojusc/rfc5322 "0.3.0-SNAPSHOT"]
     [clojusc/trifl "0.1.0-SNAPSHOT"]
+    [dragon "0.1.0-SNAPSHOT"]
     [markdown-clj "0.9.97"]
     [clojusc/twig "0.3.1-SNAPSHOT"]
     [me.raynes/cegdown "0.1.1"]
@@ -19,8 +20,8 @@
     [stasis "2.3.0"]
     [tentacles "0.5.1"]]
   :source-paths ["src/clj"]
-  :blog {
-    :dev-port 5098
+  :dragon {
+    :dev-port 5097
     :output-dir "docs"
     :cli {
       :log-level :info}}
@@ -39,9 +40,7 @@
       :dependencies [
         [http-kit "2.2.0"]
         [leiningen-core "2.7.1"]
-        [org.clojure/tools.namespace "0.2.11"]]
-      ;:pedantic? :warn
-      }
+        [org.clojure/tools.namespace "0.2.11"]]}
     :test {
       :plugins [
         [lein-ancient "0.6.10"]

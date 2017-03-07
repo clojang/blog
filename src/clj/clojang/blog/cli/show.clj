@@ -1,9 +1,9 @@
 (ns clojang.blog.cli.show
   (:require [clojure.pprint :refer [pprint]]
             [clojusc.twig :as logger]
-            [clojang.blog.config :as config]
-            [clojang.blog.meta :as meta]
-            [clojang.blog.util :as util]
+            [dragon.config :as config]
+            [dragon.meta :as meta]
+            [dragon.util :as util]
             [taoensso.timbre :as log]
             [trifl.docs :as docs])
   (:refer-clojure :exclude [meta]))
@@ -32,10 +32,10 @@
   (log/debug "Got cmd:" cmd)
   (log/debug "Got args:" args)
   (case cmd
-    :all (pprint (config/blog))
-    :port (pprint (config/get-port))
+    :all (pprint (config/dragon))
+    :port (pprint (config/port))
     :metadata (if-let [post (first args)]
                 (pprint (meta/get post))
                 (pprint (meta/get-all)))
     :help (help-cmd args)
-    (pprint (config/blog))))
+    (pprint (config/dragon))))
