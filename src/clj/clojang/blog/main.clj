@@ -19,7 +19,7 @@
   ([mode & args]
     ;; Set the initial log-level before the components set the log-levels for
     ;; the configured namespaces
-    (logger/set-level! '[clojang.blog] (config/log-level))
+    (logger/set-level! (config/log-ns) (config/log-level))
     (log/infof "Running the Clojang blog application in %s mode ..." mode)
     (log/debug "Passing the following args to the application:" args)
     (case (keyword mode)

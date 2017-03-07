@@ -24,7 +24,8 @@
     :dev-port 5097
     :output-dir "docs"
     :cli {
-      :log-level :info}}
+      :log-level :info
+      :log-ns [clojang.blog dragon]}}
   :profiles {
     :uberjar {:aot :all}
     :dev {
