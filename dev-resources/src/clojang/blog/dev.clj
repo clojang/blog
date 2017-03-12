@@ -5,6 +5,9 @@
   Clojang blog application."
   (:require [clojang.blog.cli :as cli]
             [clojang.blog.main :as main]
+            [clojang.blog.routes :as routes]
+            [clojang.blog.web.content.data :as page-data]
+            [clojang.blog.web.content.page :as page]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.pprint :refer [pprint print-table]]
@@ -15,6 +18,7 @@
             [clojusc.twig :as logger]
             [dragon.blog :as blog]
             [dragon.blog.post :as blog-post]
+            [dragon.config :as config]
             [dragon.content.rfc5322 :as rfc5322]
             [dragon.generator :as generator]
             [dragon.util :as util]
@@ -26,9 +30,35 @@
             [trifl.fs :as fs]
             [trifl.java :as java]))
 
-(logger/set-level! ['clojang.blog] :debug)
+(logger/set-level! '[clojang dragon] :trace)
+
+(defonce server (atom nil))
 
 (def show-methods #'java/show-methods)
+
+(defn gen
+  []
+  (-> (config/posts-path)
+      (routes/routes)
+      (generator/run)))
+
+(defn run
+  []
+  (-> (config/posts-path)
+      (routes/routes)
+      (web/run (config/port))))
+
+(defn start
+  []
+  (reset! server (run))
+  :started)
+
+(defn stop
+  []
+  (when-not (nil? @server)
+    (@server :timeout 100)
+    (reset! server nil)
+    :stopped))
 
 ;;; Aliases
 
