@@ -12,6 +12,7 @@
     [clojusc/rfc5322 "0.3.0-SNAPSHOT"]
     [clojusc/trifl "0.1.0-SNAPSHOT"]
     [clojusc/twig "0.3.1-SNAPSHOT"]
+    [ring/ring-core "1.6.0-RC1"]
     [dragon "0.1.0-SNAPSHOT"]
     [markdown-clj "0.9.97"]
     [me.raynes/cegdown "0.1.1"]
@@ -21,8 +22,10 @@
     [tentacles "0.5.1"]]
   :source-paths ["src/clj"]
   :dragon {
+    :domain "clojang.lfe.io"
     :dev-port 5097
     :output-dir "docs"
+    :posts-path "/archives"
     :cli {
       :log-level :info
       :log-ns [clojang.blog dragon]}}
