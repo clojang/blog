@@ -9,24 +9,52 @@
      routes should be generated dynamically as URI path / slurp call pairs.
   "
   (:require [clojang.blog.web.content.page :as page]
-            [dragon.blog :as blog]))
+            [clojusc.twig :refer [pprint]]
+            [dragon.blog :as blog]
+            [taoensso.timbre :as log]))
+
+(defn static-routes
+  []
+  (log/info "Generating pages for static pages ...")
+  {"/about.html" (page/about)
+   "/community.html" (page/community)})
+
+(defn design-routes
+  []
+  (log/info "Generating pages for design pages ...")
+  {"/design/index.html" (page/design)
+   "/design/bootstrap-theme.html" (page/bootstrap-theme)
+   "/design/example-blog.html" (page/blog-example)})
+
+(defn post-routes
+  [uri-base data]
+  (log/info "Generating pages for blog posts ...")
+  (blog/get-archive-routes
+    data
+    :gen-func page/post
+    :uri-base uri-base))
+
+(defn index-routes
+  [data]
+  (log/info "Generating pages for front page, archives, categories, etc. ...")
+  {"/index.html" (page/front-page data)
+   "/archives/index.html" (page/archives data)
+   "/categories/index.html" (page/categories data)
+   "/tags/index.html" (page/tags data)
+   "/authors/index.html" (page/authors data)})
+
+(defn reader-routes
+  [data]
+  ;; XXX TBD
+  {"/atom.xml" ""})
 
 (defn routes
-  []
-  (let [uri-base "/archives"
-        data (blog/process uri-base)]
+  [uri-base]
+  (let [data (blog/process uri-base)]
+    (log/trace "Got data:" (pprint (blog/data-minus-body data)))
     (merge
-      (blog/get-archive-routes
-        data
-        :gen-func page/post
-        :uri-base uri-base)
-      {"/index.html" (page/front-page data)
-       "/about.html" (page/about)
-       "/archives/index.html" (page/archives (blog/data-for-archives data))
-       "/categories/index.html" (page/categories (blog/data-for-categories data))
-       "/tags/index.html" (page/tags (blog/data-for-tags data))
-       "/authors/index.html" (page/authors (blog/data-for-authors data))
-       ;; The remaining pages are for design purposes only; no access to data needed
-       "/design/index.html" (page/design)
-       "/design/bootstrap-theme.html" (page/bootstrap-theme)
-       "/design/example-blog.html" (page/blog-example)})))
+      (static-routes)
+      (design-routes)
+      (post-routes uri-base data)
+      (index-routes data)
+      (reader-routes data))))
