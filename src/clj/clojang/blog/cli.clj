@@ -54,8 +54,8 @@
   (case cmd
     :new (new/run args)
     :show (show/run args)
-    :gen (gen/run routes (config/output-dir))
-    :run (web/run routes (config/port))
+    :gen (gen/run (routes))
+    :run (web/run (routes) (config/port))
     :help (help-cmd args)
     :version (version-cmd)
     ;; Aliases

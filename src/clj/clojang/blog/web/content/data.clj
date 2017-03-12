@@ -6,7 +6,10 @@
     req
     {:index "index"
      :about "about"
-     :credits "credits"}))
+     :archives "archives"
+     :categories "categories"
+     :tags "tags"
+     :authors "authors"}))
 
 (defn index
   [req]
@@ -20,20 +23,26 @@
     (base req)
     {:active "about"}))
 
-(defn credits
+(defn archives
   [req]
   (merge
     (base req)
-    {:active "credits"}))
+    {:active "archives"}))
 
-(defn starter
+(defn categories
   [req]
   (merge
     (base req)
-    {}))
+    {:active "categories"}))
 
-(defn post
+(defn tags
   [req]
   (merge
     (base req)
-    {}))
+    {:active "tags"}))
+
+(defn authors
+  [req]
+  (merge
+    (base req)
+    {:active "authors"}))

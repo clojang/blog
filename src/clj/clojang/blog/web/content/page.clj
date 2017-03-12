@@ -3,7 +3,7 @@
             [dragon.web.content :as content]))
 
 (defn front-page
-  []
+  [data]
   (content/render
     "templates/front-page.html"
     data/index))
@@ -14,23 +14,35 @@
     "templates/about.html"
     data/about))
 
-(defn credits
-  []
-  (content/render
-    "templates/credits.html"
-    data/credits))
-
-(defn starter
-  []
-  (content/render
-    "templates/starter.html"
-    data/starter))
-
 (defn post
-  []
+  [data]
   (content/render
     "templates/post.html"
-    data/post))
+    (merge data/archives data)))
+
+(defn archives
+  [data]
+  (content/render
+    "templates/archives.html"
+    (merge data/archives data)))
+
+(defn categories
+  [data]
+  (content/render
+    "templates/categories.html"
+    (merge data/categories data)))
+
+(defn tags
+  [data]
+  (content/render
+    "templates/tags.html"
+    (merge data/tags data)))
+
+(defn authors
+  [data]
+  (content/render
+    "templates/authors.html"
+    (merge data/authors data)))
 
 (defn design
   []
