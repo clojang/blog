@@ -62,13 +62,27 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="http://clojang.lfe.io/">Clojang</a></li>
-
-            <li><a href="/archives/index.html">Archives</a></li>
-            <li><a href="/categories/index.html">Categories</a></li>
-            <li><a href="/tags/index.html">Tags</a></li>
-            <li><a href="/authors/index.html">Authors</a></li>
-            <li><a href="/about.html">About</a></li>
+            <li class="">
+              <a href="http://clojang.lfe.io/">Clojang</a>
+            </li>
+            <li class="">
+              <a href="/archives/">Archives</a>
+            </li>
+            <li class="">
+              <a href="/categories/">Categories</a>
+            </li>
+            <li class="">
+              <a href="/tags/">Tags</a>
+            </li>
+            <li class="">
+              <a href="/authors/">Authors</a>
+            </li>
+            <li class="">
+              <a href="/community.html">Community</a>
+            </li>
+            <li class="active">
+              <a href="/about.html">About</a>
+            </li>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
@@ -101,7 +115,34 @@
     
     <main>
       
-
+    <div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 about">
+            <h1>About</h1>
+            <p>
+              "Clojang" is a set of libraries and tools (including the library
+              <code>clojang</code>-proper) that are dedicated to Clojure-BEAM
+              interop, where BEAM languages include all those of the Erlang
+              ecosystem: Erlang, LFE, Elixir, Joxa, Reia, Luerl, Erlog, etc.
+            </p>
+            <p>
+              In particular, the aim of Clojang is to support production
+              deployments of distributed, fault-tolerant, soft real-time
+              BEAM/JVM applications, capable of running JVM code in supervision
+              trees with appropriate restart and fail-over strategies, hot
+              code-loading (live system updates with no downtime), and the like.
+            </p>
+            <p>
+              From the developer perspective, Clojang wants to make OTP-based
+              communications between BEAM languages and the JVM as Clojure-idiomatic
+              as possible and as natural to BEAM programmers as can reasonably
+              be provided.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     </main>
     
@@ -178,7 +219,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/assets/js/jquery-1.12.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/js/jquery-1.12.1.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="/assets/js/jquery-1.12.1.min.js"><\/script>')</script>
     <script src="/assets/js/bootstrap-3.3.6.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/assets/js/clojang.js"></script>

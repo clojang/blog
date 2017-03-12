@@ -7016,3 +7016,7 @@ footer .footer-buffer-top {
 footer .footer-buffer-bottom {
   padding: 1em;
 }
+div.about > p {
+  font-size: 120%;
+  padding-bottom: 1em;
+}

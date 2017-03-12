@@ -30,7 +30,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    
+<link href="/assets/css/blog.css" rel="stylesheet">
+
     
     
     <script src="/assets/highlight/highlight.pack.js"></script>
@@ -62,10 +63,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active">
+            <li class="">
               <a href="http://clojang.lfe.io/">Clojang</a>
             </li>
-            <li class="">
+            <li class="active">
               <a href="/archives/">Archives</a>
             </li>
             <li class="">
@@ -116,39 +117,47 @@
     <main>
       
     <div class="container">
-      <div class="page-header" id="banner">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
 
-        <div class="row">
-          <div class="col-lg-8 col-md-7 col-sm-6">
-            <h1>Temporary Landing Page</h1>
-            <p class="lead">The Clojang Blog infrastructure is currently under heavy
-             development. Until it is ready, the following content is available:
-            </p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
-              <a class="list-group-item active" href="/design/index.html">GENERAL INFO</a>
-              <a class="list-group-item" href="/about.html">About Clojang</a>
-              <a class="list-group-item" href="/community.html">Community Links</a>
+          <div class="blog-post">
+            <div class="page-header">
+              <h2 class="blog-post-title">Test Post One</h2>
+              <div class="blog-post-meta">
+                <p class="date">August
+                                17,
+                                2016</p>
+                <p class="author">by <a href="#">Alice</a></p>
+                <p class="lead well">
+                  When writing of things adventurous, the urge to venture comes upon us!
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem dui, condimentum sit amet efficitur sed, vehicula id ipsum. Nunc fermentum erat quis ex tristique, vel rutrum augue convallis. Pellentesque et suscipit nisl, ac vestibulum metus. Nam a venenatis diam. Morbi ornare sit amet ligula vitae condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis iaculis lorem. Ut accumsan consectetur luctus. Pellentesque et mattis massa, in sagittis ipsum. Quisque at eleifend erat. Proin sit amet nunc sollicitudin, ultrices odio nec, iaculis odio. Nullam aliquam turpis eu rhoncus facilisis. Etiam non justo rhoncus, lacinia orci id, malesuada elit.</p><pre><code class="clj">&#40;defn ackermann &#91;m n&#93;
+  &#40;cond &#40;zero? m&#41; &#40;inc n&#41;
+        &#40;zero? n&#41; &#40;ackermann &#40;dec m&#41; 1&#41;
+        :else &#40;ackermann &#40;dec m&#41; &#40;ackermann m &#40;dec n&#41;&#41;&#41;&#41;&#41;
+</code></pre><p>Morbi mollis consectetur luctus. Etiam sit amet bibendum erat, euismod suscipit mi. Duis eleifend arcu at tempor suscipit. Integer condimentum nisi in finibus interdum. Curabitur non ante molestie, feugiat metus ut, lacinia quam. Pellentesque vitae fringilla odio, vel tincidunt lectus. Donec sit amet ex augue. Maecenas id tellus feugiat, scelerisque metus et, congue leo.</p><pre><code class="cl">&#40;defun ackermann &#40;m n&#41;
+  &#40;cond &#40;&#40;zerop m&#41; &#40;1+ n&#41;&#41;
+        &#40;&#40;zerop n&#41; &#40;ackermann &#40;1- m&#41; 1&#41;&#41;
+        &#40;t         &#40;ackermann &#40;1- m&#41; &#40;ackermann m &#40;1- n&#41;&#41;&#41;&#41;&#41;&#41;
+</code></pre><p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent fermentum, ex sed consectetur volutpat, tortor odio placerat dui, eu dictum erat augue id diam.</p><pre><code class="erlang">-module&#40;ackermann&#41;.
+-export&#40;&#91;ackermann/2&#93;&#41;.
 
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
-              <a class="list-group-item active" href="/design/index.html">DESIGN</a>
-              <a class="list-group-item" href="/design/bootstrap-theme.html">A
-                demo of the Bootstrap theme</a>
-              <a class="list-group-item" href="/design/example-blog.html">An
-                example blog page</a>
-            </div>
+ackermann&#40;0, N&#41; -&gt;
+  N+1;
+ackermann&#40;M, 0&#41; -&gt;
+  ackermann&#40;M-1, 1&#41;;
+ackermann&#40;M, N&#41; when M &gt; 0 andalso N &gt; 0 -&gt;
+  ackermann&#40;M-1, ackermann&#40;M, N-1&#41;&#41;.
+ </code></pre><p>Proin gravida, augue nec mollis euismod, lectus velit tempus elit, volutpat cursus enim ex ut velit. Nulla luctus tincidunt ligula, id ullamcorper tortor dapibus in. Vestibulum metus tortor, faucibus sed massa ac, feugiat efficitur mi. Nunc id lectus facilisis, facilisis augue vitae, convallis leo. Aenean elementum sed nibh sed convallis. Proin non posuere dui.</p><pre><code class="cl">&#40;defun ackermann
+  &#40;&#40;0 n&#41; &#40;+ n 1&#41;&#41;
+  &#40;&#40;m 0&#41; &#40;ackermann &#40;- m 1&#41; 1&#41;&#41;
+  &#40;&#40;m n&#41; &#40;ackermann &#40;- m 1&#41; &#40;ackermann m &#40;- n 1&#41;&#41;&#41;&#41;&#41;
+</code></pre><p>Vestibulum vestibulum feugiat orci, quis mattis purus suscipit non. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris a magna diam. Etiam dolor nunc, mattis sodales neque eget, molestie vehicula erat. Suspendisse nisl tellus, feugiat ut lorem nec, tincidunt accumsan velit. Morbi congue ipsum nec risus eleifend, in ullamcorper tortor hendrerit. Nullam sollicitudin tortor ante, sit amet faucibus erat fringilla et.</p><p>Proin ornare sodales tellus eu gravida. Donec dapibus nunc nec sapien porta, et laoreet risus blandit. In eget enim vulputate, molestie sem sit amet, vulputate leo. Vivamus nec vestibulum lorem. Maecenas posuere consectetur nulla vel interdum. Praesent pharetra dignissim malesuada. Duis laoreet lectus nec elementum placerat. Aliquam id nisl tortor. Mauris eget quam maximus, consequat sapien molestie, tempus est. Nullam tellus dolor, iaculis a interdum in, imperdiet sit amet est. Nulla congue, felis in sagittis ultricies, dui ligula viverra tellus, bibendum finibus dui eros et ipsum.</p><p>Sed ullamcorper est sed erat dignissim, quis aliquet purus consequat. Morbi in tempus magna. Fusce id scelerisque mi. Aliquam commodo rutrum augue vitae pellentesque. Phasellus et dapibus tellus, sit amet ultrices libero. Aenean odio metus, mattis vitae vulputate ac, congue rutrum purus. Donec sagittis velit id velit cursus, at lacinia odio dictum. Phasellus eget interdum erat, a eleifend elit.</p>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
 
