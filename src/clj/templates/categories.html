@@ -1,14 +1,15 @@
-{% extends "templates/base.html" %}
+{% extends "templates/base-1-col.html" %}
 
-{% block main_content %}
-    <div class="container">
-      <div class="page-header" id="banner">
-        <div class="row">
-          <div class="col-lg-8 col-md-7 col-sm-6">
-            <h1>Categories</h1>
-            <p class="lead">All posts presented by their major classification.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+{% block content_title %}Categories{% endblock %}
+
+{% block content_body %}
+  <p class="lead">All posts presented by their major classification.</p>
+  {% for cat-data in posts-data %}
+  <h2>{{ cat-data.category }}</h2>
+  <ul>
+    {% for post-data in cat-data.posts %}
+    <li>{{ post-data.link|safe }}</li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
 {% endblock %}
