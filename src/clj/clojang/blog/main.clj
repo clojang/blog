@@ -23,6 +23,6 @@
     (log/infof "Running the Clojang blog application in %s mode ..." mode)
     (log/debug "Passing the following args to the application:" args)
     (case (keyword mode)
-      :web (web/run (routes)
+      :web (web/run (routes (config/posts-path))
                     (config/port))
       :cli (cli/run (map keyword args)))))
