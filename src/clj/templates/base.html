@@ -15,13 +15,27 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="http://clojang.lfe.io/">Clojang</a></li>
-
-            <li><a href="/archives/index.html">Archives</a></li>
-            <li><a href="/categories/index.html">Categories</a></li>
-            <li><a href="/tags/index.html">Tags</a></li>
-            <li><a href="/authors/index.html">Authors</a></li>
-            <li><a href="/about.html">About</a></li>
+            <li class="{% ifequal page-data.active page-data.index %}active{% endifequal %}">
+              <a href="http://clojang.lfe.io/">Clojang</a>
+            </li>
+            <li class="{% ifequal page-data.active page-data.archives %}active{% endifequal %}">
+              <a href="/archives/">Archives</a>
+            </li>
+            <li class="{% ifequal page-data.active page-data.categories %}active{% endifequal %}">
+              <a href="/categories/">Categories</a>
+            </li>
+            <li class="{% ifequal page-data.active page-data.tags %}active{% endifequal %}">
+              <a href="/tags/">Tags</a>
+            </li>
+            <li class="{% ifequal page-data.active page-data.authors %}active{% endifequal %}">
+              <a href="/authors/">Authors</a>
+            </li>
+            <li class="{% ifequal page-data.active page-data.community %}active{% endifequal %}">
+              <a href="/community.html">Community</a>
+            </li>
+            <li class="{% ifequal page-data.active page-data.about %}active{% endifequal %}">
+              <a href="/about.html">About</a>
+            </li>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>

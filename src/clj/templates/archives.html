@@ -7,6 +7,17 @@
           <div class="col-lg-8 col-md-7 col-sm-6">
             <h1>Archives</h1>
             <p class="lead">All previous posts are listed here by year and month.</p>
+            {% for year-data in posts-data %}
+            <h2>{{ year-data.year }}</h2>
+              {% for month-data in year-data.months %}
+              <h3>{{ month-data.month }}</h3>
+                <ul>
+                  {% for post-data in month-data.posts %}
+                  <li>{{ post-data.link|safe }}</li>
+                  {% endfor %}
+                </ul>
+              {% endfor %}
+            {% endfor %}
           </div>
         </div>
       </div>

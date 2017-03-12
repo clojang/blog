@@ -1,5 +1,31 @@
 {% extends "templates/base.html" %}
 
-{% block main_content %}
+{% block post_css %}
+<link href="/assets/css/blog.css" rel="stylesheet">
+{% endblock %}
 
+{% block main_content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <div class="page-header">
+              <h2 class="blog-post-title">{{ post-data.title }}</h2>
+              <div class="blog-post-meta">
+                <p class="date">{{ post-data.month }}
+                                {{ post-data.date.day }},
+                                {{ post-data.date.year }}</p>
+                <p class="author">by <a href="#">{{ post-data.author }}</a></p>
+                <p class="lead well">
+                  {{ post-data.excerpt }}
+                </p>
+              </div>
+            </div>
+            {{ post-data.body|safe }}
+          </div>
+
+        </div>
+      </div>
+    </div>
 {% endblock %}
