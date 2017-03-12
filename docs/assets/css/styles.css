@@ -7020,3 +7020,8 @@ div.about > p {
   font-size: 120%;
   padding-bottom: 1em;
 }
+div.about > blockquote {
+  font-size: 200%;
+  font-style: bold;
+  color: #8bc650;
+}
