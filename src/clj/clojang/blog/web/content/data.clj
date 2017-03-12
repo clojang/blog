@@ -1,48 +1,57 @@
 (ns clojang.blog.web.content.data)
 
 (defn base
-  [req]
-  (merge
-    req
-    {:index "index"
-     :about "about"
-     :archives "archives"
-     :categories "categories"
-     :tags "tags"
-     :authors "authors"}))
-
-(defn index
-  [req]
-  (merge
-    (base req)
-    {:active "index"}))
+  ([]
+    (base {}))
+  ([data]
+    (merge
+      data
+      {:index "index"
+       :about "about"
+       :community "community"
+       :archives "archives"
+       :categories "categories"
+       :tags "tags"
+       :authors "authors"})))
 
 (defn about
-  [req]
-  (merge
-    (base req)
-    {:active "about"}))
+  []
+  {:page-data (base {:active "about"})})
+
+(defn community
+  []
+  {:page-data (base {:active "community"})})
+
+(defn design
+  []
+  {:page-data (base {:active "design"})})
+
+(defn post
+  [data]
+  {:page-data (base {:active "archives"})
+   :post-data data})
 
 (defn archives
-  [req]
-  (merge
-    (base req)
-    {:active "archives"}))
+  [data]
+  {:page-data (base {:active "archives"})
+   :posts-data data})
+
+(defn index
+  [data]
+  {:page-data (base {:active "index"})
+   :posts-data data})
 
 (defn categories
-  [req]
-  (merge
-    (base req)
-    {:active "categories"}))
+  [data]
+  {:page-data (base {:active "categories"})
+   :posts-data data})
 
 (defn tags
-  [req]
-  (merge
-    (base req)
-    {:active "tags"}))
+  [data]
+  {:page-data (base {:active "tags"})
+   :posts-data data})
 
 (defn authors
-  [req]
-  (merge
-    (base req)
-    {:active "authors"}))
+  [data]
+  {:page-data (base {:active "authors"})
+   :posts-data data})
