@@ -108,6 +108,10 @@ h6,
   margin-bottom: 5px;
   font-size: 40px;
 }
+.blog-post-subtitle {
+  font-size: 110%;
+  font-style: italic;
+}
 .blog-post-meta {
   margin-bottom: 10px;
 }

@@ -103,6 +103,7 @@
                 <li><a href="https://github.com/clojang/agent">agent</a></li>
                 <li><a href="https://github.com/clojang/jinterface-builder">jinterface-builder</a></li>
                 <li><a href="https://github.com/clojang">Clojang org</a></li>
+                <li><a href="https://travis-ci.org/clojang">Travis CI</a></li>
               </ul>
             </li>
 
@@ -128,9 +129,10 @@
   ecosystem: Erlang, LFE, Elixir, Joxa, Reia, Luerl, Erlog, etc.
 </p>
 <blockquote class="blockquote-reverse">
-  Clojang ... support[s] production
-  deployments of distributed, fault-tolerant, soft real-time
-  BEAM/JVM applications, capable of running JVM code ...
+  Clojang supports production deployments of distributed,
+  fault-tolerant, soft real-time BEAM/JVM applications with
+  appropriate restart and fail-over strategies and hot
+  code-loading.
 </blockquote>
 <p>
   In particular, the aim of Clojang is to support production
@@ -154,6 +156,74 @@
   <a href="http://clojang.github.io/clojang/current/30-talking-to-servers.html">"Talking
   to Servers" tutorial</a>.
 </p>
+<h3>Sample Code</h3>
+Here's a Clojure OTP server written using Clojang:
+
+<pre><code class="clj">&#40;defn ping-pong
+  &#91;&#93;
+  &#40;let &#91;init-state 0&#93;
+    &#40;loop &#91;png-count init-state&#93;
+      &#40;match &#40;receive&#41;
+        &#91;:ping caller&#93;
+          &#40;do &#40;! caller :pong&#41;
+            &#40;recur &#40;inc png-count&#41;&#41;&#41;
+        &#91;:get-ping-count caller&#93;
+          &#40;do &#40;! caller png-count&#41;
+            &#40;recur png-count&#41;&#41;
+        &#91;:stop caller&#93;
+          &#40;do &#40;! caller :stopping&#41;
+              :stopped&#41;&#41;&#41;&#41;&#41;
+</code></pre>
+
+<p>And here's LFE talking to Clojure:</p>
+
+<pre><code class="lisp">&#40;clojang-lfe@host&#41;&gt; &#40;! #&#40;default clojang@host&#41; `#&#40;ping ,&#40;self&#41;&#41;&#41;
+#&#40;ping &lt;0.34.0&gt;&#41;
+&#40;clojang-lfe@host&#41;&gt; &#40;! #&#40;default clojang@host&#41; `#&#40;ping ,&#40;self&#41;&#41;&#41;
+#&#40;ping &lt;0.34.0&gt;&#41;
+&#40;clojang-lfe@host&#41;&gt; &#40;! #&#40;default clojang@host&#41; `#&#40;ping ,&#40;self&#41;&#41;&#41;
+#&#40;ping &lt;0.34.0&gt;&#41;
+&#40;clojang-lfe@host&#41;&gt; &#40;c:flush&#41;
+Shell got pong
+Shell got pong
+Shell got pong
+ok
+&#40;clojang-lfe@host&#41;&gt; &#40;! #&#40;default clojang@host&#41; `#&#40;get-ping-count ,&#40;self&#41;&#41;&#41;
+#&#40;get-count &lt;0.34.0&gt;&#41;
+&#40;clojang-lfe@host&#41;&gt; &#40;c:flush&#41;
+Shell got 3
+ok
+</code></pre>
+
+<p>Here's part of an LFE OTP <code>gen&#95;server</code>:</p>
+
+<pre><code class="cl">&#40;defun handle&#95;call
+  &#40;&#40;'ping &#95;caller state-data&#41;
+    `#&#40;reply pong ,&#40;+ 1 state-data&#41;&#41;&#41;
+  &#40;&#40;'ping-count &#95;caller state-data&#41;
+    `#&#40;reply ,state-data ,state-data&#41;&#41;
+  &#40;&#40;'stop &#95;caller state-data&#41;
+    `#&#40;stop shutdown ok ,state-data&#41;&#41;
+  &#40;&#40;&#95;message &#95;caller state-data&#41;
+    `#&#40;reply ,&#40;unknown-command&#41; ,state-data&#41;&#41;&#41;
+</code></pre><p>And here's Clojure talking to LFE:</p><pre><code class="clj">clojang.dev=&gt; &#40;rpc/! :clojang-lfe :ping-pong :ping&#41;
+:ok
+clojang.dev=&gt; &#40;rpc/! :clojang-lfe :ping-pong :ping&#41;
+:ok
+clojang.dev=&gt; &#40;rpc/! :clojang-lfe :ping-pong :ping&#41;
+:ok
+clojang.dev=&gt; &#40;rpc/receive :clojang-lfe&#41;
+:pong
+clojang.dev=&gt; &#40;rpc/receive :clojang-lfe&#41;
+:pong
+clojang.dev=&gt; &#40;rpc/receive :clojang-lfe&#41;
+:pong
+clojang.dev=&gt; &#40;rpc/! :clojang-lfe :ping-pong :get-ping-count&#41;
+:ok
+clojang.dev=&gt; &#40;rpc/receive :clojang-lfe&#41;
+3
+</code></pre>
+
 
           </div>
         </div>
@@ -193,7 +263,7 @@
             <ul class="list-inline">
               <li><a href="https://clojure.org/">Clojure</a></li>
               <li><a href="http://www.erlang.org/">Erlang</a></li>
-              <li><a href="http://github.com/rvirding/lfe">LFE</a>/<a href="#">X</a></li>
+              <li><a href="http://github.com/rvirding/lfe">LFE</a>/<a href="http://github.com/lfex/">X</a></li>
               <li><a href="http://elixir-lang.org/">Elixir</a></li>
               <li><a href="https://github.com/clojang">Clojang</a></li>
             </ul>
