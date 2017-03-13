@@ -8,7 +8,9 @@
   <h2>{{ cat-data.category }}</h2>
   <ul>
     {% for post-data in cat-data.posts %}
-    <li>{{ post-data.link|safe }}</li>
+    <li>{{ post-data.month }}
+        {{ post-data.date.day }},
+        {{ post-data.date.year }} - {{ post-data.link|safe }}</li>
     {% endfor %}
   </ul>
   {% endfor %}

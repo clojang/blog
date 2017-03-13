@@ -12,14 +12,19 @@
           <div class="blog-post">
             <div class="page-header">
               <h2 class="blog-post-title">{{ post-data.title }}</h2>
+              {% if post-data.subtitle %}
+              <p class="blog-post-subtitle">{{ post-data.subtitle }}</p>
+              {% endif %}
               <div class="blog-post-meta">
                 <p class="date">{{ post-data.month }}
                                 {{ post-data.date.day }},
                                 {{ post-data.date.year }}</p>
                 <p class="author">by <a href="#">{{ post-data.author }}</a></p>
+                {% if post-data.excerpt %}
                 <p class="lead well">
                   {{ post-data.excerpt }}
                 </p>
+                {% endif %}
               </div>
             </div>
             {{ post-data.body|safe }}
