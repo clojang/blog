@@ -1,0 +1,47 @@
+Subject: A New Project
+Subtitle: Clojure and LFE Interop?
+Excerpt: With the first few lines of code, hacking on a fork of Maxim Molchanov's erlang-java-node code, it seems there's a lot of potential here for LFE and Clojure.
+From: oubiwann
+Category: Prototypes
+Keywords: code, development, erlang, clojure
+Comments:
+Content-Type: md
+
+I've been hacking on LFE/Clojure code lately, based on the work that
+[Maxim Molchanov](https://github.com/Elzor) has done in his
+[Erlang/Clojure repo](https://github.com/Elzor/erlang-clojure-node). This could
+end up being a great deal of fun :-)
+
+Here's a quick sample of his Erlang supervisor for a Java node:
+
+```erlang
+-module(clojurenode_sup).
+
+-behaviour(supervisor).
+
+%% API
+-export([start_link/0]).
+
+%% Supervisor callbacks
+-export([init/1]).
+
+%% Helper macro for declaring children of supervisor
+-define(CHILD(I, Type), {I, {I, start_link, []}, permanent, 5000, Type, [I]}).
+
+%% ===================================================================
+%% API functions
+%% ===================================================================
+
+start_link() ->
+    supervisor:start_link({local, ?MODULE}, ?MODULE, []).
+
+%% ===================================================================
+%% Supervisor callbacks
+%% ===================================================================
+
+init([]) ->
+    {ok, { {one_for_one, 5, 10}, [?CHILD(clj_controller, worker)]} }.
+```
+
+Note sure if the work I'm doing with LFE and Clojure will go anywhere yet, but
+even if it doesn't, it's a ton of fun :-)

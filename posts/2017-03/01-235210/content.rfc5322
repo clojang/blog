@@ -1,0 +1,17 @@
+Subject: Progress Towards the Next Releases
+Subtitle:
+Excerpt:
+From: oubiwann
+Category: Releases
+Keywords: announcements, jiface, clojang, lfecljapp, news
+Comments:
+Content-Type: md
+
+An enormous amount of work has been going on in Clojang-land lately -- enough
+so that a new release is imminent. The work in jiface and clojang is being
+driven almost entirely by the long-awaited rewrite of [lfecljapp](lfecljapp).
+
+The tickets have all been organized into a release, epics, features, tasks,
+etc., and are linked from this one ticket here:
+
+* [isuse #20 - Release 0.4.0](https://github.com/clojang/lfecljapp/issues/20)

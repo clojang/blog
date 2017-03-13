@@ -1,0 +1,49 @@
+Subject: Announcing jiface, clojang, and a Clojure OTP agent
+Subtitle:
+Excerpt:
+From: oubiwann
+Category: Projects
+Keywords: erlang, clojure, java, lfe, libraries, announcements, jiface, clojang, agents
+Comments:
+Content-Type: md
+
+After all the hacking on the Clojure/LFE/Erlang code -- a prototype version of
+Clojang -- it has become clear that Clojang really needs to be split into
+projects with separate concerns. Firstly, there needs to be a dedicated
+project for two very distinct aspects of this mini-ecosystem:
+
+* There should be a low-level Clojure wrapper around JInterface (having to
+  write   OTP-interop code using Clojure's Java interop makes for unbelievably
+  ugly code ...). This library should have no opinions about anything, instead
+  simply providing a minimally Clojure-idiomatic wrapper around JInterface.
+
+* In addition, there needs to be a mid-level API that wrapps jiface and allows
+  one to use even more idiomatic Clojure (and perhaps some LFE-isms, too). This
+  library can have the luxury of being opinionated about how things should be
+  done, including default nodes, mboxes, etc., as well as automatic conversion
+  of Erlang/OTP types.
+
+Finally, there is a bit of functionality that can be broken out into another
+project, usable by clojang and other higher-level libs that would benefit from
+some basic OTP conveniences: a
+[Clojure/Java agent](http://github.com/clojang/agent) that helps set up a default
+OTP node in Clojure applications.
+
+The home for these projects is here:
+
+* [githb.com/clojang](http://github.com/clojang)
+
+Or, individually:
+
+* [githb.com/clojang/jiface](http://github.com/clojang/jiface)
+* [githb.com/clojang/clojang](http://github.com/clojang/clojang)
+* [githb.com/clojang/agent](http://github.com/clojang/agent)
+
+The work started last year on
+[a fork of Arnaud Wetzel'a code](https://github.com/awetzel/clojure-erlastic),
+while interesting at first, doesn't really provide a general and open-ended
+solution that's needed for larger-scale applications. As such, the new
+version of clojang -- as well as its other new sister projects -- represents
+a completely fresh start with no shared code history. This should leave
+things maximally
+flexible.

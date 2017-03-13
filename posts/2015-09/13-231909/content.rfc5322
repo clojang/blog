@@ -1,0 +1,18 @@
+Subject: Clojang
+Subtitle:
+Excerpt:
+From: oubiwann
+Category: Prototypes
+Keywords: code, development, erlang, clojure, projects, announcements
+Comments:
+Content-Type: md
+
+After the initial work with Erlang, LFE, Clojure, and JInterface last year,
+I've been pursuing other options of simplifying BEAM development (LFE in
+particular) in conjunction with JVM apps (Clojure, really). I recently
+came across the work of [Arnaud Wetzel](https://github.com/awetzel) in his
+[clojure-erlastic](https://github.com/awetzel/clojure-erlastic) project.
+
+This looks promising enough to fork and experiment with, so I've done just
+that. However, since I plan on doing much more than what clojure-erlastic
+provides, I've changed the name of the forked repo to "clojang" :-)

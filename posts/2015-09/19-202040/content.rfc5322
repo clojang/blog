@@ -1,0 +1,18 @@
+Subject: lfecljapp v0.3.0 Release
+Subtitle:
+Excerpt:
+From: oubiwann
+Category: Releases
+Keywords: development, erlang, clojure, announcements, lfecljapp
+Comments:
+Content-Type: md
+
+The project that kicked this whole thing off just got a series of updates.
+In fact, it got enough of them to warrant a new release. However, this will
+likely be the last significant update for a while, since I'm going to spend
+any time I have for this work on core libraries of jiface and clojang.
+
+Hopefully, the next release of lfecljapp will be using released versions of
+jiface, clojang, and the agent.
+
+Stay tuned ...
