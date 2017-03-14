@@ -5,34 +5,57 @@
       <div class="page-header" id="banner">
 
         <div class="row">
-          <div class="col-lg-8 col-md-7 col-sm-6">
-            <h1>Temporary Landing Page</h1>
-            <p class="lead">The Clojang Blog infrastructure is currently under heavy
-             development. Until it is ready, the following content is available:
-            </p>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
-              <a class="list-group-item active" href="/design/index.html">GENERAL INFO</a>
-              <a class="list-group-item" href="/about.html">About Clojang</a>
-              <a class="list-group-item" href="/community.html">Community Links</a>
-            </div>
+          <div class="col-sm-8 blog-main">
+            <h1>{{ page-data.site-title }}</h1>
+            <p class="lead">{{ page-data.site-description }}</p>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
-              <a class="list-group-item active" href="/design/index.html">DESIGN</a>
-              <a class="list-group-item" href="/design/bootstrap-theme.html">A
-                demo of the Bootstrap theme</a>
-              <a class="list-group-item" href="/design/example-blog.html">An
-                example blog page</a>
+          <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+            <div class="sidebar-module sidebar-module-inset">
+              <p class="social">
+                <a href="/atom.xml">
+                  <i class="fa fa-feed fa-lg first"></i>
+                </a>
+                <a href="http://twitter.com/clojang">
+                  <i class="fa fa-twitter fa-lg"></i>
+                </a>
+                <a href="http://github.com/clojang">
+                  <i class="fa fa-github fa-lg"></i>
+                </a>
+                <a href="http://clojang.slack.com">
+                  <i class="fa fa-slack fa-lg"></i>
+                </a>
+                <a href="https://groups.google.com/forum/#!forum/clojang">
+                  <i class="fa fa-envelope fa-lg last"></i>
+                </a>
+              </p>
             </div>
-          </div>
+
+            <div class="sidebar-module">
+              <h4>Tags</h4>
+              <p>
+                {% for tag in tags %}
+                <a href="/tags/#{{tag}}">{{ tag }}</a>
+                {% endfor %}
+              </p>
+            </div>
+
+            <div class="sidebar-module">
+              <h4>Featured</h4>
+              <p>
+
+              </p>
+            </div>
+
+            <div class="sidebar-module">
+              <h4>Featured</h4>
+              <p>
+
+              </p>
+            </div>
+
         </div>
 
       </div>

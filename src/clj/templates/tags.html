@@ -5,6 +5,7 @@
 {% block content_body %}
   <p class="lead">Tags are listed below, alphabetically, with any posts labeled as such.</p>
   {% for tags-data in posts-data %}
+  <a name="{{ tags-data.tag }}"></a><br />
   <h2>{{ tags-data.tag }}</h2>
   <ul>
     {% for post-data in tags-data.posts %}

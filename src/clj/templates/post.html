@@ -22,7 +22,7 @@
                 <p class="author">by <a href="#">{{ post-data.author }}</a></p>
                 {% if post-data.excerpt %}
                 <p class="lead well">
-                  {{ post-data.excerpt }}
+                  {{ post-data.excerpt|safe }}
                 </p>
                 {% endif %}
               </div>
@@ -34,3 +34,10 @@
       </div>
     </div>
 {% endblock %}
+
+Notes:
+ * add sidebar for all tags
+ * add sidebar for post metadata: category, post tags, follows (link), preceeds (link)
+ * add previous (down arrow) and next (up arrow) blog post links at the bottom
+ * add dragon.blog function for generating linked tags
+ * auto-convert excerpt as Markdown
