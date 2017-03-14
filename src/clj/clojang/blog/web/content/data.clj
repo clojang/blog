@@ -41,11 +41,13 @@
    :posts-data data})
 
 (defn front-page
-  [data]
+  [data & {post-count :post-count column-count :column-count}]
+  (let [headliner (first data)
+        posts (partition column-count (take (- post-count 1) (rest data)))]
   {:page-data (base {:active "index"})
    :tags (blog/tags data)
-   :headliner (first data)
-   :posts-data (rest data)})
+   :headliner headliner
+   :posts-data posts}))
 
 (defn categories
   [data]

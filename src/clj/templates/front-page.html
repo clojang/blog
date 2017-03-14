@@ -5,10 +5,65 @@
       <div class="page-header" id="banner">
 
         <div class="row">
-
           <div class="col-sm-8 blog-main">
+
             <h1>{{ page-data.site-title }}</h1>
             <p class="lead">{{ page-data.site-description }}</p>
+
+            <div class="row">
+              <div class="col-sm-12">
+
+                <div class="headliner well">
+
+                  <h2>
+                    <a href="{{ headliner.url }}">{{ headliner.title }}</a>
+                  </h2>
+                  {% if headliner.subtitle %}
+                    <h4>{{ headliner.subtitle }}</h4>
+                  {% endif %}
+                  {% if headliner.excerpt %}
+                    <h3>{{ headliner.excerpt|safe }}</h3>
+                  {% endif %}
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p>Date: {{ headliner.datestamp }}</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p>Author: {{ headliner.author }}</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p>Category: {{ headliner.category }}</p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            {% for row in posts-data %}
+            <div class="row row-full-height subheadliner">
+              {% for column in row %}
+              <div class="col-sm-6 well subheadliner">
+
+                  <h2>
+                    <a href="{{ column.url }}">{{ column.title }}</a>
+                  </h2>
+                  {% if column.subtitle %}
+                    <h4>{{ column.subtitle }}</h4>
+                  {% endif %}
+                  {% if column.excerpt %}
+                    <h3>{{ column.excerpt|safe }}</h3>
+                  {% endif %}
+                  <p>Date: {{ column.datestamp }}</p>
+                  <p>Author: {{ column.author }}</p>
+                  <p>Category: {{ column.category }}</p>
+
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+
           </div>
 
           <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
@@ -34,6 +89,19 @@
             </div>
 
             <div class="sidebar-module">
+              <h4>Featured</h4>
+              <p>
+                <a href="/archives/2017-02/24-014224/clojang-jinterface-core-async.html">Clojang, JInterface, &amp; core.async</a>
+              </p>
+              <p>
+                <a href="/archives/2017-03/12-212549/clojang-mail-list-slack-channel.html">Clojang Mail List &amp; Slack Channel</a>
+              </p>
+              <p>
+                <a href="/archives/2017-03/01-235210/progress-towards-the-next-releases.html">Progress Towards the Next Releases</a>
+              </p>
+            </div>
+
+            <div class="sidebar-module">
               <h4>Tags</h4>
               <p>
                 {% for tag in tags %}
@@ -43,16 +111,9 @@
             </div>
 
             <div class="sidebar-module">
-              <h4>Featured</h4>
+              <h4>Tweets</h4>
               <p>
-
-              </p>
-            </div>
-
-            <div class="sidebar-module">
-              <h4>Featured</h4>
-              <p>
-
+                <a class="twitter-timeline" data-width="250" data-height="800" data-theme="dark" data-link-color="#58852b" href="https://twitter.com/clojang">clojang on Twitter</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
               </p>
             </div>
 

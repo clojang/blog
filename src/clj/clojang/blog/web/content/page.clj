@@ -25,7 +25,10 @@
   [data]
   (content/render
     "templates/front-page.html"
-    (data/front-page data)))
+    (data/front-page
+      data
+      :post-count 5
+      :column-count 2)))
 
 (defn archives
   [data]
