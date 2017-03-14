@@ -7020,8 +7020,29 @@ div.about > p {
   font-size: 120%;
   padding-bottom: 1em;
 }
-div.about > blockquote {
+div.about blockquote {
   font-size: 200%;
   font-style: bold;
   color: #8bc650;
+}
+/* Sidebar modules for boxing content */
+.sidebar-module {
+  margin-top: 50px;
+}
+.sidebar-module-inset {
+  border-radius: 4px;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+.sidebar-module .social i {
+  padding: 0.25em;
+}
+.sidebar-module .social i.first {
+  padding-left: 0;
+}
+.sidebar-module .social i.last {
+  padding-right: 0;
 }

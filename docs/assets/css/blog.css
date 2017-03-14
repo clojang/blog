@@ -81,20 +81,6 @@ h6,
   font-size: 18px;
   line-height: 1.5;
 }
-/* Sidebar modules for boxing content */
-.sidebar-module {
-  padding: 15px;
-  margin-top: 50px;
-}
-.sidebar-module-inset {
-  padding: 15px;
-  border-radius: 4px;
-}
-.sidebar-module-inset p:last-child,
-.sidebar-module-inset ul:last-child,
-.sidebar-module-inset ol:last-child {
-  margin-bottom: 0;
-}
 /*
  * Blog posts
  */

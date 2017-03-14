@@ -103,7 +103,7 @@
                 <li><a href="https://github.com/clojang/jiface">jiface</a></li>
                 <li><a href="https://github.com/clojang/agent">agent</a></li>
                 <li><a href="https://github.com/clojang/jinterface-builder">jinterface-builder</a></li>
-                <li><a href="https://github.com/clojang">Clojang org</a></li>
+                <li><a href="https://github.com/clojang">The Clojang Collection</a></li>
                 <li><a href="https://travis-ci.org/clojang">Travis CI</a></li>
               </ul>
             </li>
@@ -123,17 +123,23 @@
 
           <div class="blog-post">
             <div class="page-header">
-              <h2 class="blog-post-title">jiface v0.1.0 Released</h2>
+              <h2 class="blog-post-title">Zhang</h2>
+              
+              <p class="blog-post-subtitle">An Experiment in Gutting JInterface for core.async</p>
               
               <div class="blog-post-meta">
-                <p class="date">April
-                                30,
+                <p class="date">February
+                                13,
                                 2016</p>
                 <p class="author">by <a href="#">oubiwann</a></p>
                 
+                <p class="lead well">
+                  The <a href="http://github.com/clojang/zhang">zhang project</a> aims to create a very minimal library in Clojure, built on core.async, that, as closely as possible, implements the Erlang process model. It does not aim to provide any opionions about (and thus even less, any implementations for) either message structure or infrastructure necessary for supporting remote processes
+                </p>
+                
               </div>
             </div>
-            <p>jiface has made progress in the past five months, enough for an initial alpha release.</p><p>Available <a href='https://github.com/clojang/jiface/releases/tag/0.1.0'>here</a>.</p><p>Enjoy!</p>
+            <p>Today <a href='http://github.com/clojang'>yet another Clojang project</a> was created:</p><ul><li><a href='http://github.com/clojang/zhang'>zhang</a></li></ul><p>From the project's README, here is a (partial) list of desired features:</p><ul><li>the ability to quickly create and destroy processes, nodes, and mboxes</li><li>ensure the safe "crashing" of a process</li><li>very fast message-passing between processes</li><li>the ability support very large numbers of processes</li><li>shared nothing</li><li>low-overhead function-level mailboxes</li><li>ordered message queues</li><li>timeouts</li><li>pattern matching (<code>core.match</code>) and selective <code>receive</code></li><li>process registration hooks (in order to support arbitrary publishing mechanisms)</li></ul><p>A great deal of work (and time in production deployments) has gone into Erlang's JInterface Java package. Using it in Clojure has been such a pain, however, that two projects were created to mitigate two major issues around that (Clojure idioms and sane OTP defaults). Even with these libraries under active development, their ultimate goals (and areas of focus) are beyond the scope of addressing the JInterface internals of threads, sockets, and queues. As such, zhang was created to find a good solution for replacing those bits with <code>core.async</code>.</p><p>The project is experimental in nature and will likely be developed only very slowly, especially while <a href='https://github.com/clojang/jiface'>jiface</a> and <a href='https://github.com/clojang/clojang'>clojang</a> are in development. Once those projects hit a level of stability, though, I expect to be spending more time on the interesting problems to be solved in zhang.</p><p>Additionally, I expect that zhang, jiface, and clojang will end up sharing a certain amount of code. Only once jiface and clojang stabilize will it become clear what common bits for zhang can be split out into supporting library projects. I expect that one of these will be the type conversions developed in clojang (i.e., there will likely eventually be a clojang/types library and corresponding repo).</p><p>Since zhang aims to be messaging and deployment agnostic, there could also be a set of message implementation libraries created &ndash; the first of which would be the default: OTP process messaging. However, there's no reason other message formats couldn't be implemented or integrated. This would allow zhang (and thus Clojang in general) to transcend the current domain of OTP messaging and take fault-tolerant, soft real-time programming into other areas of the Clojure ecosystem.</p><p>On a fun side note, the zhang project takes it's name from <a href='https://en.wikipedia.org/wiki/Zhang_Heng'>Zhang Heng</a>, who approximated pi early in the first millennium (Han Dynasty). This is an obscure pun, since the Erlang process model could be, in some ways, interpreted as an approximation of the <a href='https://en.wikipedia.org/wiki/%CE%A0-calculus'>process calculus</a>. In addition to being a mathematician, Zhang Heng was also a poet, astronomer, and engineer &ndash; a wonderful patron for a software project :-)</p>
           </div>
 
         </div>

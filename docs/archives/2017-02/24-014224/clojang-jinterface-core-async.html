@@ -103,7 +103,7 @@
                 <li><a href="https://github.com/clojang/jiface">jiface</a></li>
                 <li><a href="https://github.com/clojang/agent">agent</a></li>
                 <li><a href="https://github.com/clojang/jinterface-builder">jinterface-builder</a></li>
-                <li><a href="https://github.com/clojang">Clojang org</a></li>
+                <li><a href="https://github.com/clojang">The Clojang Collection</a></li>
                 <li><a href="https://travis-ci.org/clojang">Travis CI</a></li>
               </ul>
             </li>
@@ -123,17 +123,86 @@
 
           <div class="blog-post">
             <div class="page-header">
-              <h2 class="blog-post-title">Clojang Mail List</h2>
+              <h2 class="blog-post-title">Clojang, JInterface, &amp; core.async</h2>
+              
+              <p class="blog-post-subtitle">Passing Comments on Internals with Possible Future Development</p>
               
               <div class="blog-post-meta">
-                <p class="date">March
-                                12,
+                <p class="date">February
+                                24,
                                 2017</p>
                 <p class="author">by <a href="#">oubiwann</a></p>
                 
+                <p class="lead well">
+                  Yesterday on the <a href="http://lfe.slack.com">LFE Slack</a>, Kyle Oba asked some interesting questions about Clojang and core.async. What followed was a mini brain-dump of current thinking on the topic, so I thought it might be good to record that somewhere more permanant and public.
+                </p>
+                
               </div>
             </div>
-            <p>A mail list for Clojang has been created and is availble for user subscriptions here:</p><ul><li><a href='https://groups.google.com/forum/#!forum/clojang'>https://groups.google.com/forum/#!forum/clojang</a></li></ul><p>Once subscribed, you may send emails to the list via clojang@googlegroups.com.</p>
+            <p>The discussion on Slack the other day kicked off with a question about how messages are consumed in Clojang (and thus jiface and JInterface), and whether, in Clojure code, one could use <code>core.async</code> to do this.</p><p>We'll take a very quick deep (while at the same time superficial) dive into this, but then answer some broader questions to provide a better context for JInterface and the projects built upon it.</p><h2>Receiving Messages</h2><p>If you are using the <code>clojang</code> library, receiving messages is as simple as the following (assuming you've followed the best practice of adding the Clojang <code>agent</code> dependency in your <code>project.clj</code> file and set the <code>:java-agents</code> option):</p><pre><code class="cl">&#40;require '&#91;clojang.core :refer &#91;receive&#93;&#93;
+
+&#40;receive&#41;
+</code></pre><p>At which point, your code blocks until a message is received. When a message comes in, <code>clojang</code> will automatically convert the Java-OTP hybrid types to Clojure types; when you reply, the conversion will take place in the other direction.</p><p>A fuller examples is viewable here:</p><ul><li><a href='https://github.com/clojang/lfecljapp/blob/master/src/clj/cljnode/server.clj'>https://github.com/clojang/lfecljapp/blob/master/src/clj/cljnode/server.clj</a></li></ul><p>Under the hood (in the <code>clojang</code> library), a default OTP node and associated mbox are being used (using the Clojure-idiomatic library <code>jiface</code>). Under <em>that</em> hood, Erlang's JInterface Java library is using threads, sockets, and custom queues to handle in-coming and out-going messages.</p><p>In other words, not a lot of room for <code>core.async</code>, unfortunately.</p><p>However, there's a <em>little</em> bit of room :-)</p><h2>Command & Convenience Channels</h2><p>One way I use <code>core.async</code> in Clojang applications is to facilitate communications between Clojure functions (i.e., a Clojang server and client, both written in Clojure).</p><p>Here's a Clojure server that takes a <code>core.async</code> channel as an argument:</p><pre><code class="clj">&#40;defn run
+  &#91;cmd-chan&#93;
+  &#40;log/info &quot;Starting Clojure node with nodename =&quot;
+            &#40;System/getProperty &quot;node.sname&quot;&#41;&#41;
+  &#40;let &#91;init-state 0&#93;
+    &#40;loop &#91;png-count init-state&#93;
+      &#40;match &#40;receive&#41;
+        &#91;:register caller&#93;
+          &#40;do
+            &#40;log/infof &quot;Got :register request from %s ...&quot; caller&#41;
+            &#40;mbox/link &#40;self&#41; caller&#41;
+            &#40;! caller :linked&#41;
+            &#40;recur png-count&#41;&#41;
+        &#91;:ping caller&#93;
+          &#40;do
+            &#40;log/infof &quot;Got :ping request from %s ...&quot; caller&#41;
+            &#40;! caller :pong&#41;
+            &#40;recur &#40;inc png-count&#41;&#41;&#41;
+        &#91;:get-ping-count caller&#93;
+          &#40;do
+            &#40;log/infof &quot;Got :get-ping-count request from %s ...&quot;  caller&#41;
+            &#40;! caller png-count&#41;
+            &#40;recur png-count&#41;&#41;
+        &#91;:stop caller&#93;
+          &#40;do
+            &#40;log/warnf &quot;Got :stop request from %s ...&quot; caller&#41;
+            &#40;! caller :stopping&#41;
+            :stopped&#41;
+        &#91;:shutdown caller&#93;
+          &#40;do
+            &#40;log/warnf &quot;Got :shutdown request from %s ...&quot; caller&#41;
+            &#40;! caller :shutting-down&#41;
+            &#40;async/&gt;! cmd-chan :shutdown&#41;&#41;
+        &#91;&#95; caller&#93;
+          &#40;do
+            &#40;log/error &quot;Bad message received: unknown command&quot;&#41;
+            &#40;! caller &#91;:error :unknown-command&#93;&#41;
+            &#40;recur png-count&#41;&#41;
+        &#91;&#95;&#93;
+          &#40;do
+            &#40;log/error &quot;Bad message received: improperly formatted&quot;&#41;
+            &#40;recur png-count&#41;&#41;&#41;&#41;&#41;&#41;
+</code></pre><p>In this particular case, it doesn't do too much: it simply sends a message back to the calling code when the server has been asked to shutdown. (Note that the <code>:shutdown</code> clause is sending two types of messages: first an OTP message reply is sent back to the calling OTP node &ndash; which could be either another OTP Clojure node or a BEAM node &ndash; and then a <code>core.async</code> message is pushed onto the channel that was passed to the server function. In the case where this code was copied from, that channel was started by the function that called <code>&#40;run&#41;</code>.)</p><p>That's a really simple (and not strictly necessary) example of a command channel use case for <code>core.async</code> in a Clojang app. Here's another case:</p><pre><code class="clj">&#40;defn otp-bridge
+  &quot;This function creates the following in order to facilitate core.async
+  communications with the Clojure OTP server:
+    1. A dedicated mbox for the OTP bridge &#40;what receives messages from the
+       OTP server&#41;
+    2. The pid for the dedicated mbox
+    3. A core.async channel for sending messages to the OTP server.&quot;
+  &#91;&#93;
+  &#40;let &#91;bridge-mbox &#40;mbox/add :otpbrige&#41;
+        bridge-pid &#40;mbox/get-pid bridge-mbox&#41;
+        bridge-chan &#40;async/chan&#41;&#93;
+    &#40;async/go-loop &#91;&#93;
+      &#40;when-let &#91;value &#40;async/&lt;! bridge-chan&#41;&#93;
+        &#40;! &#91;value bridge-pid&#93;&#41;&#41;
+      &#40;recur&#41;&#41;
+    {:mbox bridge-mbox
+     :pid bridge-pid
+     :channel bridge-chan}&#41;&#41;
+</code></pre><p>As the docstring above says, this function uses <code>core.async</code> to provide a wrapper for OTP communications with a Clojang server. Interesting and kind of fun, but not really tapping into the power of <code>core.async</code>.</p><h2>Zhang</h2><p>There is an experimental project for exploring ways in which Clojure/OTP applications could maximize <code>core.async</code> while communicating with nodes, services, and full distributed systems in the BEAM world:</p><ul><li><a href='/archives/2016-02/13-121526/zhang.html'>Zhang</a>  (blog post/project announcement)</li><li><a href='http://github.com/clojang/zhang'>zhang on github</a></li></ul><p>Those two links provide some good introductory material, so I won't duplicate that here. Note, however, than while the <code>jiface</code> and <code>clojang</code> libs are stabilizing, little effort is being applied to <code>zhang</code>. As such, there's not much to the project currently.</p>
           </div>
 
         </div>
