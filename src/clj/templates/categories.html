@@ -5,6 +5,7 @@
 {% block content_body %}
   <p class="lead">All posts presented by their major classification.</p>
   {% for cat-data in posts-data %}
+  <a name="{{ cat-data.category }}"></a><br />
   <h2>{{ cat-data.category }}</h2>
   <ul>
     {% for post-data in cat-data.posts %}
