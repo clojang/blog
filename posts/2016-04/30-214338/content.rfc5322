@@ -1,13 +1,15 @@
-Subject: clojang-agent v0.1.0 Released
+Subject: jiface & clojang-agent v0.1.0 Released
 Subtitle:
 Excerpt:
 From: oubiwann
 Category: Releases
-Keywords: announcements, agent
+Keywords: announcements, agent, jiface
 Comments:
 Content-Type: md
 
-The new release is available
-[here](https://github.com/clojang/agent/releases/tag/0.1.0).
+The new releases are available here:
+
+* [jiface](https://github.com/clojang/jiface/releases/tag/0.1.0)
+* [agent](https://github.com/clojang/agent/releases/tag/0.1.0)
 
 Enjoy!

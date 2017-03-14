@@ -1,11 +1,13 @@
-Subject: Clojang Mail List
+Subject: Clojang Mail List & Slack Channel
 Subtitle:
 Excerpt:
 From: oubiwann
 Category: Community
-Keywords: announcements, jiface, clojang, lfecljapp, news
+Keywords: announcements, jiface, clojang, lfecljapp, news, social
 Comments:
 Content-Type: md
+
+## Mail List
 
 A mail list for Clojang has been created and is availble for user
 subscriptions here:
@@ -13,3 +15,11 @@ subscriptions here:
 * [https://groups.google.com/forum/#!forum/clojang](https://groups.google.com/forum/#!forum/clojang)
 
 Once subscribed, you may send emails to the list via clojang@googlegroups.com.
+
+## Slack
+
+Additionally, a Slack channel has been set up at [clojang.slack.com](http://clojang.slack.com).
+However, you need an invite in order to join the rooms. If you would like to participate in
+Clojang development or usage discussions, send a direct message to
+[@Clojang](http://twitter.com/clojang) (requires mutual follow) or open a
+[Slack invitation request ticket](https://github.com/clojang/slack/issues/new).
