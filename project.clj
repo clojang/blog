@@ -1,5 +1,5 @@
 (defproject clojang/blog "0.1.0-SNAPSHOT"
-  :description "Blog for Forgotten Roads MX"
+  :description "The Clojang Blog"
   :url "https://clojang.lfe.io/"
   :scm {
     :name "git"
@@ -8,6 +8,7 @@
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [
+    [org.clojure/data.xml "0.0.8"]
     [clojusc/env-ini "0.3.0-SNAPSHOT"]
     [clojusc/rfc5322 "0.3.0-SNAPSHOT"]
     [clojusc/trifl "0.1.0-SNAPSHOT"]
@@ -23,9 +24,12 @@
   :source-paths ["src/clj"]
   :dragon {
     :domain "clojang.lfe.io"
+    :name "The Clojang Blog"
+    :description "News, Information, & Tutorials for the Clojang Collection"
     :dev-port 5097
     :output-dir "docs"
     :posts-path "/archives"
+    :feed-count 20
     :cli {
       :log-level :info
       :log-ns [clojang.blog dragon]}}
