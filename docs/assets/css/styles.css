@@ -7046,3 +7046,22 @@ div.about blockquote {
 .sidebar-module .social i.last {
   padding-right: 0;
 }
+.row-full-height {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+.headliner h2,
+.subheadliner h2 {
+  font-family: "Josefin Slab", serif;
+  font-size: 175%;
+  font-weight: bold;
+}
+.well.subheadliner {
+  margin: 14px;
+}
+.headliner,
+.subheadliner {
+  font-size: 110%;
+}
