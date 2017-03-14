@@ -33,7 +33,8 @@
 (defn post
   [data]
   {:page-data (base {:active "archives"})
-   :post-data data})
+   :post-data data
+   :tags (blog/tags [data])})
 
 (defn archives
   [data]
