@@ -8,9 +8,11 @@
    * Since the posts have already been generated and saved to disc, their
      routes should be generated dynamically as URI path / slurp call pairs.
   "
-  (:require [clojang.blog.web.content.page :as page]
+  (:require [clojang.blog.reader :as reader]
+            [clojang.blog.web.content.page :as page]
             [clojusc.twig :refer [pprint]]
             [dragon.blog :as blog]
+            [dragon.config :as config]
             [taoensso.timbre :as log]))
 
 (defn static-routes
@@ -44,9 +46,11 @@
    "/authors/index.html" (page/authors data)})
 
 (defn reader-routes
-  [data]
-  ;; XXX TBD
-  {"/atom.xml" ""})
+  [uri-base data]
+  (log/info "Generating XML for feeds ...")
+  (let [route "/atom.xml"]
+    {route (reader/atom-feed
+             uri-base route (take (config/feed-count) data))}))
 
 (defn routes
   [uri-base]
@@ -57,4 +61,4 @@
       (design-routes)
       (post-routes uri-base data)
       (index-routes data)
-      (reader-routes data))))
+      (reader-routes uri-base data))))
