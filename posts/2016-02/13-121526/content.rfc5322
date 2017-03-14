@@ -2,8 +2,8 @@ Subject: Zhang
 Subtitle: An Experiment in Gutting JInterface for core.async
 Excerpt: The <a href="http://github.com/clojang/zhang">zhang project</a> aims to create a very minimal library in Clojure, built on core.async, that, as closely as possible, implements the Erlang process model. It does not aim to provide any opionions about (and thus even less, any implementations for) either message structure or infrastructure necessary for supporting remote processes
 From: oubiwann
-Category: Projects
-Keywords: announcements, jiface, clojang, news, zhang, jinterface, core.async
+Category: Prototypes
+Keywords: announcements, jiface, clojang, news, zhang, jinterface, core.async, libraries
 Comments:
 Content-Type: md
 
