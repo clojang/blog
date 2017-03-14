@@ -25,7 +25,7 @@
   :dragon {
     :domain "clojang.lfe.io"
     :name "The Clojang Blog"
-    :description "News, Information, & Tutorials for the Clojang Collection"
+    :description "News, Information, & Tutorials for the Clojang Library Collection"
     :dev-port 5097
     :output-dir "docs"
     :posts-path "/archives"
