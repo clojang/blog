@@ -25,7 +25,7 @@
   [data]
   (content/render
     "templates/front-page.html"
-    (data/index data)))
+    (data/front-page data)))
 
 (defn archives
   [data]

@@ -1,4 +1,6 @@
-(ns clojang.blog.web.content.data)
+(ns clojang.blog.web.content.data
+  (:require [dragon.blog :as blog]
+            [dragon.config :as config]))
 
 (defn base
   ([]
@@ -6,7 +8,9 @@
   ([data]
     (merge
       data
-      {:index "index"
+      {:site-title (config/name)
+       :site-description (config/description)
+       :index "index"
        :about "about"
        :community "community"
        :archives "archives"
@@ -36,10 +40,12 @@
   {:page-data (base {:active "archives"})
    :posts-data data})
 
-(defn index
+(defn front-page
   [data]
   {:page-data (base {:active "index"})
-   :posts-data data})
+   :tags (blog/tags data)
+   :headliner (first data)
+   :posts-data (rest data)})
 
 (defn categories
   [data]
