@@ -44,3 +44,7 @@ Anyway, all this is to say that most of the important stuff has been preserved
 and the interesting bits are now either in the various
 [Clojang](http://github.com/clojang) repos or they've been published on the
 blog.
+
+One last thing: comments are on the way ... but they will be a bit unusual:
+each blog post that has comments enabled will link to a dedicated ticket on
+Github <i class="fa fa-github"></i>
