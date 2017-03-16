@@ -19,11 +19,11 @@ blog-css:
 	@lessc $(LESS_DIR)/$(COLOUR_THEME).less $(CSS_DIR)/styles.css
 	@lessc $(LESS_DIR)/blog.less $(CSS_DIR)/blog.css
 
-blog-clojure:
+blog-gen:
 	@blog gen
 	@echo
 
-blog-local: blog-pre blog-css blog-clojure
+blog-local: blog-pre blog-css blog-gen
 
 blog-dev-gen: blog
 	@echo
