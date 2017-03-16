@@ -113,3 +113,6 @@ h6,
 .blog-post .well {
   background-color: #3b4c70;
 }
+.nav-arrow-disabled {
+  color: #455;
+}
