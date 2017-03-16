@@ -144,6 +144,7 @@
             <p>Today <a href='http://github.com/clojang'>yet another Clojang project</a> was created:</p><ul><li><a href='http://github.com/clojang/zhang'>zhang</a></li></ul><p>From the project's README, here is a (partial) list of desired features:</p><ul><li>the ability to quickly create and destroy processes, nodes, and mboxes</li><li>ensure the safe "crashing" of a process</li><li>very fast message-passing between processes</li><li>the ability support very large numbers of processes</li><li>shared nothing</li><li>low-overhead function-level mailboxes</li><li>ordered message queues</li><li>timeouts</li><li>pattern matching (<code>core.match</code>) and selective <code>receive</code></li><li>process registration hooks (in order to support arbitrary publishing mechanisms)</li></ul><p>A great deal of work (and time in production deployments) has gone into Erlang's JInterface Java package. Using it in Clojure has been such a pain, however, that two projects were created to mitigate two major issues around that (Clojure idioms and sane OTP defaults). Even with these libraries under active development, their ultimate goals (and areas of focus) are beyond the scope of addressing the JInterface internals of threads, sockets, and queues. As such, zhang was created to find a good solution for replacing those bits with <code>core.async</code>.</p><p>The project is experimental in nature and will likely be developed only very slowly, especially while <a href='https://github.com/clojang/jiface'>jiface</a> and <a href='https://github.com/clojang/clojang'>clojang</a> are in development. Once those projects hit a level of stability, though, I expect to be spending more time on the interesting problems to be solved in zhang.</p><p>Additionally, I expect that zhang, jiface, and clojang will end up sharing a certain amount of code. Only once jiface and clojang stabilize will it become clear what common bits for zhang can be split out into supporting library projects. I expect that one of these will be the type conversions developed in clojang (i.e., there will likely eventually be a clojang/types library and corresponding repo).</p><p>Since zhang aims to be messaging and deployment agnostic, there could also be a set of message implementation libraries created &ndash; the first of which would be the default: OTP process messaging. However, there's no reason other message formats couldn't be implemented or integrated. This would allow zhang (and thus Clojang in general) to transcend the current domain of OTP messaging and take fault-tolerant, soft real-time programming into other areas of the Clojure ecosystem.</p><p>On a fun side note, the zhang project takes it's name from <a href='https://en.wikipedia.org/wiki/Zhang_Heng'>Zhang Heng</a>, who approximated pi early in the first millennium (Han Dynasty). This is an obscure pun, since the Erlang process model could be, in some ways, interpreted as an approximation of the <a href='https://en.wikipedia.org/wiki/%CE%A0-calculus'>process calculus</a>. In addition to being a mathematician, Zhang Heng was also a poet, astronomer, and engineer &ndash; a wonderful patron for a software project :-)</p>
           </div>
 
+          
           <div class="row">
             <div class="col-xs-6">
               
@@ -166,6 +167,7 @@
             <div class="col-xs-6">Previous Post</div>
             <div class="col-xs-6 text-right">Next Post</div>
           </div>
+          
 
         </div>
 
@@ -218,6 +220,13 @@
               
               <a href="/tags/#zhang">zhang</a>
               
+            </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Post Data</h4>
+            <p>Words: 434</p>
+            <p>Characters: 2889</p>
             </p>
           </div>
 
