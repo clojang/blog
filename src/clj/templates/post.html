@@ -32,6 +32,7 @@
             {{ post-data.body|safe }}
           </div>
 
+          {% if post-data.char-count > 2500 %}
           <div class="row">
             <div class="col-xs-6">
               {% if post-data.prev-post %}
@@ -60,6 +61,7 @@
             <div class="col-xs-6">Previous Post</div>
             <div class="col-xs-6 text-right">Next Post</div>
           </div>
+          {% endif %}
 
         </div>
 
@@ -98,6 +100,13 @@
               {% for tag in tags %}
               <a href="/tags/#{{tag}}">{{ tag }}</a>
               {% endfor %}
+            </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Post Data</h4>
+            <p>Words: {{ post-data.word-count }}</p>
+            <p>Characters: {{ post-data.char-count }}</p>
             </p>
           </div>
 
