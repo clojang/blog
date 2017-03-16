@@ -1,0 +1,46 @@
+Subject: New Clojang Blog
+Subtitle:
+Excerpt:
+From: oubiwann
+Category: Site
+Keywords: announcements, community, social, writing, history
+Comments:
+Content-Type: md
+
+After a few weeks of hacking and furtive hosting of alpha code and alpha-er
+content, I think the blog's ready to have more eyeballs on it. It's mostly a
+vehicle for sharing Clojang project code snippets, clarifying documentation
+(and then using that to go update the docs!), provide updates on version
+releases, and maybe even share the occasional experiment. Though it should be
+fairly low-volume and low-impact, it seemed like a nice way increase the
+contact area for curious developers who have to (or want to!) straddle the
+two very different worlds of the JVM (Clojure in particular) and BEAM.
+
+I might not ever have created a dedicated blog for Clojang, but there's been
+a growing interest among fellow LFErs and BEAMers in general, as well as
+from curious Clojurians. After the 5th or 6th recent conversation, it was
+time to do something. One comment in particular, that I should create a
+`STATUS.md` file in the one or more repos really motivated me to do something
+about a Clojang blog.
+
+For the archivally inclined, the following notes may be of interest. I've been
+able to reconstruct the older posts from old notes, repositories, and emails,
+but the furthest back I could find was work I was doing on
+[Maxim Molchanov](https://github.com/Elzor)'s
+[erlang-clojure-node](https://github.com/Elzor/erlang-clojure-node)
+repository. There was work done earlier, but I can't find it anywhere, since
+I don't think any of that got committed. However, it wasn't any time before
+the end of 2013, so I didn't lose much :-)
+
+There was also some forking I did of
+[Arnaud Wetzel](https://github.com/awetzel)'s
+[clojure-erlastic](https://github.com/awetzel/clojure-erlastic) repository,
+but which has since been deleted from Github since that was abandoned and
+a completely different tack was chosen. I do have an older repo of that on
+disk somewhere, so if anyone's interested, I can push it up to a Clojang
+attic ...
+
+Anyway, all this is to say that most of the important stuff has been preserved
+and the interesting bits are now either in the various
+[Clojang](http://github.com/clojang) repos or they've been published on the
+blog.
