@@ -138,6 +138,29 @@
             <p>After all the hacking on the Clojure/LFE/Erlang code &ndash; a prototype version of Clojang &ndash; it has become clear that Clojang really needs to be split into projects with separate concerns. Firstly, there needs to be a dedicated project for two very distinct aspects of this mini-ecosystem:</p><ul><li>There should be a low-level Clojure wrapper around JInterface (having to  write   OTP-interop code using Clojure's Java interop makes for unbelievably  ugly code ...). This library should have no opinions about anything, instead  simply providing a minimally Clojure-idiomatic wrapper around JInterface.</li><li>In addition, there needs to be a mid-level API that wrapps jiface and allows  one to use even more idiomatic Clojure (and perhaps some LFE-isms, too). This  library can have the luxury of being opinionated about how things should be  done, including default nodes, mboxes, etc., as well as automatic conversion  of Erlang/OTP types.</li></ul><p>Finally, there is a bit of functionality that can be broken out into another project, usable by clojang and other higher-level libs that would benefit from some basic OTP conveniences: a <a href='http://github.com/clojang/agent'>Clojure/Java agent</a> that helps set up a default OTP node in Clojure applications.</p><p>The home for these projects is here:</p><ul><li><a href='http://github.com/clojang'>githb.com/clojang</a></li></ul><p>Or, individually:</p><ul><li><a href='http://github.com/clojang/jiface'>githb.com/clojang/jiface</a></li><li><a href='http://github.com/clojang/clojang'>githb.com/clojang/clojang</a></li><li><a href='http://github.com/clojang/agent'>githb.com/clojang/agent</a></li></ul><p>The work started last year on <a href='https://github.com/awetzel/clojure-erlastic'>a fork of Arnaud Wetzel'a code</a>, while interesting at first, doesn't really provide a general and open-ended solution that's needed for larger-scale applications. As such, the new version of clojang &ndash; as well as its other new sister projects &ndash; represents a completely fresh start with no shared code history. This should leave things maximally flexible.</p>
           </div>
 
+          <div class="row">
+            <div class="col-xs-6">
+              
+              <a href="/archives/2015-09/19-202040/lfecljapp-v0-3-0-release.html">
+                <i class="fa fa-arrow-circle-o-left fa-2x"
+                   aria-hidden="true"></i>
+              </a>
+              
+            </div>
+            <div class="col-xs-6 text-right">
+              
+              <a href="/archives/2016-02/13-121526/zhang.html">
+                <i class="fa fa-arrow-circle-o-right fa-2x"
+                   aria-hidden="true"></i>
+              </a>
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">Previous Post</div>
+            <div class="col-xs-6 text-right">Next Post</div>
+          </div>
+
         </div>
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
@@ -192,6 +215,32 @@
               <a href="/tags/#libraries">libraries</a>
               
             </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Neighboring Posts</h4>
+            <div class="row">
+              <div class="col-xs-6">Previous</div>
+              <div class="col-xs-6">Next</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                
+                <a href="/archives/2015-09/19-202040/lfecljapp-v0-3-0-release.html">
+                  <i class="fa fa-arrow-circle-o-left fa-2x"
+                     aria-hidden="true"></i>
+                </a>
+                
+              </div>
+              <div class="col-xs-6">
+                
+                <a href="/archives/2016-02/13-121526/zhang.html">
+                  <i class="fa fa-arrow-circle-o-right fa-2x"
+                     aria-hidden="true"></i>
+                </a>
+                
+              </div>
+            </div>
           </div>
 
         </div>
