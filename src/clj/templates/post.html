@@ -32,6 +32,35 @@
             {{ post-data.body|safe }}
           </div>
 
+          <div class="row">
+            <div class="col-xs-6">
+              {% if post-data.prev-post %}
+              <a href="{{ post-data.prev-post }}">
+                <i class="fa fa-arrow-circle-o-left fa-2x"
+                   aria-hidden="true"></i>
+              </a>
+              {% else %}
+                <i class="fa fa-arrow-circle-o-left fa-2x nav-arrow-disabled"
+                   aria-hidden="true"></i>
+              {% endif %}
+            </div>
+            <div class="col-xs-6 text-right">
+              {% if post-data.next-post %}
+              <a href="{{ post-data.next-post }}">
+                <i class="fa fa-arrow-circle-o-right fa-2x"
+                   aria-hidden="true"></i>
+              </a>
+              {% else %}
+                <i class="fa fa-arrow-circle-o-right fa-2x nav-arrow-disabled"
+                   aria-hidden="true"></i>
+              {% endif %}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">Previous Post</div>
+            <div class="col-xs-6 text-right">Next Post</div>
+          </div>
+
         </div>
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
@@ -70,6 +99,38 @@
               <a href="/tags/#{{tag}}">{{ tag }}</a>
               {% endfor %}
             </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Neighboring Posts</h4>
+            <div class="row">
+              <div class="col-xs-6">Previous</div>
+              <div class="col-xs-6">Next</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                {% if post-data.prev-post %}
+                <a href="{{ post-data.prev-post }}">
+                  <i class="fa fa-arrow-circle-o-left fa-2x"
+                     aria-hidden="true"></i>
+                </a>
+                {% else %}
+                  <i class="fa fa-arrow-circle-o-left fa-2x nav-arrow-disabled"
+                     aria-hidden="true"></i>
+                {% endif %}
+              </div>
+              <div class="col-xs-6">
+                {% if post-data.next-post %}
+                <a href="{{ post-data.next-post }}">
+                  <i class="fa fa-arrow-circle-o-right fa-2x"
+                     aria-hidden="true"></i>
+                </a>
+                {% else %}
+                  <i class="fa fa-arrow-circle-o-right fa-2x nav-arrow-disabled"
+                     aria-hidden="true"></i>
+                {% endif %}
+              </div>
+            </div>
           </div>
 
         </div>

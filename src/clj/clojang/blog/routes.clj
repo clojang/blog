@@ -31,8 +31,8 @@
 (defn post-routes
   [uri-base data]
   (log/info "Generating pages for blog posts ...")
-  (blog/get-archive-routes
-    data
+  (blog/get-indexed-archive-routes
+    (map vector (iterate inc 0) data)
     :gen-func page/post
     :uri-base uri-base))
 
