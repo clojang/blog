@@ -12,7 +12,7 @@ I've been hacking on LFE/Clojure code lately, based on the work that
 [Erlang/Clojure repo](https://github.com/Elzor/erlang-clojure-node). This could
 end up being a great deal of fun :-)
 
-Here's a quick sample of his Erlang supervisor for a Java node:
+Here's a quick sample of his Erlang supervisor for a Clojure node:
 
 ```erlang
 -module(clojurenode_sup).
