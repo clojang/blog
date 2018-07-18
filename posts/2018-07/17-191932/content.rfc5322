@@ -1,0 +1,22 @@
+Subject: New Versions of JInterface and jiface Published on Clojars
+Subtitle:
+Excerpt:
+From: oubiwann
+Category: Releases
+Keywords: development, erlang, clojure, announcements, libraries, java
+Comments:
+Content-Type: md
+
+Since the last updates to the Clojure libraries, Erlang has had several major releases.
+Today, I was able to catch up and publish the following:
+
+* [JInterface 1.8.1](https://clojars.org/clojang/erlang-jinterface/versions/1.8.1) for Erlang 20.3 (ERTS 9.3)
+* [JInterface 1.9](https://clojars.org/clojang/erlang-jinterface/versions/1.9) for Erlang 21.0 (ERTS 10)
+
+These are now available on Clojars.
+
+Also now on Clojars are the following low-level Clojure API releases:
+
+* [jiface 0.4.0](https://clojars.org/clojang/jiface/versions/0.4.0) for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)
+* [jiface 0.5.0](https://clojars.org/clojang/jiface/versions/0.5.0) for Erlang 20.3 (uses JInterface 1.8.1)
+* [jiface 0.6.0-SNAPSHOT](https://clojars.org/clojang/jiface/versions/0.6.0-SNAPSHOT) for Erlang 21.0 (uses JInterface 1.9)
