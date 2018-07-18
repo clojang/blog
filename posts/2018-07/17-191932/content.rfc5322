@@ -20,3 +20,10 @@ Also now on Clojars are the following low-level Clojure API releases:
 * [jiface 0.4.0](https://clojars.org/clojang/jiface/versions/0.4.0) for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)
 * [jiface 0.5.0](https://clojars.org/clojang/jiface/versions/0.5.0) for Erlang 20.3 (uses JInterface 1.8.1)
 * [jiface 0.6.0-SNAPSHOT](https://clojars.org/clojang/jiface/versions/0.6.0-SNAPSHOT) for Erlang 21.0 (uses JInterface 1.9)
+
+Coming up:
+
+* Similar updates for the JVM agent and the hi-level API (clojang-proper)
+* Port more Erlang/Java examples to LFE/Clojure
+* Demonstrate use with the Clojure Component library
+* Demonstrate managing throw-away JVM instances from Erlang/LFE, managed via JMX
