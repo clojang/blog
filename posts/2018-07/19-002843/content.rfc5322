@@ -15,21 +15,24 @@ unlike the vanilla class-not-found-due-to AOT'ed JAR file collisions, this one w
 nasty/unusual ... hadn't seen anything like it before). That issue is now closed and builds
 are successful again.
 
-This allowed me to pump out the following agent releases:
+The agent is the means by which a JVM process can emulate the behaviour of an Erlang/OTP
+process (with regard to its messaging inbox, node name assignment, and other defaults
+set up automatically, keeping thigs simple for the developer).
+
+The long-awaited fix allowed me to pump out the following agent releases:
 
 * [agent 0.4.0](https://clojars.org/clojang/agent/versions/0.4.0) for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)
 * [agent 0.5.0](https://clojars.org/clojang/agent/versions/0.5.0) for Erlang 20.3 (uses JInterface 1.8.1)
-* [agent 0.6.0-SNAPSHOT](https://clojars.org/clojang/agent/versions/0.6.0) for Erlang 21.0 (uses JInterface 1.9)
+* [agent 0.6.0](https://clojars.org/clojang/agent/versions/0.6.0) for Erlang 21.0 (uses JInterface 1.9)
 
-And clojang releases:
+And then the clojang API releases that depended upon the different agent versions:
 
 * [clojang 0.4.0](https://clojars.org/clojang/clojang/versions/0.4.0) for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)
 * [clojang 0.5.0](https://clojars.org/clojang/clojang/versions/0.5.0) for Erlang 20.3 (uses JInterface 1.8.1)
-* [clojang 0.6.0-SNAPSHOT](https://clojars.org/clojang/clojang/versions/0.6.0) for Erlang 21.0 (uses JInterface 1.9)
+* [clojang 0.6.0](https://clojars.org/clojang/clojang/versions/0.6.0) for Erlang 21.0 (uses JInterface 1.9)
 
 Still coming up ...
 
-* Similar updates for the JVM agent and the hi-level API (clojang-proper)
 * Port more Erlang/Java examples to LFE/Clojure
 * Demonstrate use with the Clojure Component library
 * Demonstrate managing throw-away JVM instances from Erlang/LFE, managed via JMX
