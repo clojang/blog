@@ -30,7 +30,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    
+<link href="/assets/css/blog.css" rel="stylesheet">
+
     
     
     <script src="/assets/highlight/highlight.pack.js"></script>
@@ -62,10 +63,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active">
+            <li class="">
               <a href="http://clojang.lfe.io/">Clojang</a>
             </li>
-            <li class="">
+            <li class="active">
               <a href="/archives/">Archives</a>
             </li>
             <li class="">
@@ -119,201 +120,113 @@
     <div class="container">
       <div class="page-header" id="banner">
 
-        <div class="row">
-          <div class="col-sm-8 blog-main">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
 
-            <h1>The Clojang Blog</h1>
-            <p class="lead">News, Information, &amp; Tutorials for the Clojang Library Collection</p>
-
-            <div class="row">
-              <div class="col-sm-12">
-
-                <div class="headliner well">
-
-                  <h2>
-                    <a href="/archives/2018-07/19-002843/followup-new-versions-of-clojang-agent-and-api-published-on-clojars.html">Followup: New Versions of Clojang Agent and API Published on Clojars</a>
-                  </h2>
-                  
-                  
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <p>Date: 2018-07-19</p>
-                    </div>
-                    <div class="col-sm-4">
-                      <p>Author: oubiwann</p>
-                    </div>
-                    <div class="col-sm-4">
-                      <p>Category: Releases</p>
-                    </div>
-                  </div>
-
-                </div>
-
+          <div class="blog-post">
+            <div class="page-header">
+              <h2 class="blog-post-title">Followup: New Versions of Clojang Agent and API Published on Clojars</h2>
+              
+              <div class="blog-post-meta">
+                <p class="date">July
+                                19,
+                                2018</p>
+                <p class="author">by <a href="#">oubiwann</a></p>
+                
               </div>
             </div>
-
-            
-            <div class="row row-full-height subheadliner">
-              
-              <div class="col-sm-6 well subheadliner">
-
-                  <h2>
-                    <a href="/archives/2018-07/17-191932/new-versions-of-jinterface-and-jiface-published-on-clojars.html">New Versions of JInterface and jiface Published on Clojars</a>
-                  </h2>
-                  
-                  
-                  <p>Date: 2018-07-17</p>
-                  <p>Author: oubiwann</p>
-                  <p>Category: Releases</p>
-
-              </div>
-              
-              <div class="col-sm-6 well subheadliner">
-
-                  <h2>
-                    <a href="/archives/2017-03/16-004734/new-clojang-blog.html">New Clojang Blog</a>
-                  </h2>
-                  
-                  
-                  <p>Date: 2017-03-16</p>
-                  <p>Author: oubiwann</p>
-                  <p>Category: Community</p>
-
-              </div>
-              
-            </div>
-            
-            <div class="row row-full-height subheadliner">
-              
-              <div class="col-sm-6 well subheadliner">
-
-                  <h2>
-                    <a href="/archives/2017-03/12-212549/clojang-mail-list-slack-channel.html">Clojang Mail List &amp; Slack Channel</a>
-                  </h2>
-                  
-                    <h4>New Stuff!</h4>
-                  
-                  
-                    <h3>Getting Project Communications Set Up</h3>
-                  
-                  <p>Date: 2017-03-12</p>
-                  <p>Author: oubiwann</p>
-                  <p>Category: Community</p>
-
-              </div>
-              
-              <div class="col-sm-6 well subheadliner">
-
-                  <h2>
-                    <a href="/archives/2017-03/04-201918/clojang-is-on-twitter.html">Clojang is on Twitter</a>
-                  </h2>
-                  
-                  
-                  <p>Date: 2017-03-04</p>
-                  <p>Author: oubiwann</p>
-                  <p>Category: Community</p>
-
-              </div>
-              
-            </div>
-            
-
+            <p>As with the <a href='/archives/2018-07/17-191932/new-versions-of-jinterface-and-jiface-published-on-clojars.html'>post from the other day</a>, tonight (this morning) has seen the two other core Clojang libraries get updates. The agent lib in particular is a cause for celebration, since there's been an out-standing issue with failing builds for the past year (a dep with AOT'ed classes was the primary suspect; unlike the vanilla class-not-found-due-to AOT'ed JAR file collisions, this one was particulaly nasty/unusual ... hadn't seen anything like it before). That issue is now closed and builds are successful again.</p><p>This allowed me to pump out the following agent releases:</p><ul><li><a href='https://clojars.org/clojang/agent/versions/0.4.0'>agent 0.4.0</a> for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)</li><li><a href='https://clojars.org/clojang/agent/versions/0.5.0'>agent 0.5.0</a> for Erlang 20.3 (uses JInterface 1.8.1)</li><li><a href='https://clojars.org/clojang/agent/versions/0.6.0'>agent 0.6.0-SNAPSHOT</a> for Erlang 21.0 (uses JInterface 1.9)</li></ul><p>And clojang releases:</p><ul><li><a href='https://clojars.org/clojang/clojang/versions/0.4.0'>clojang 0.4.0</a> for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)</li><li><a href='https://clojars.org/clojang/clojang/versions/0.5.0'>clojang 0.5.0</a> for Erlang 20.3 (uses JInterface 1.8.1)</li><li><a href='https://clojars.org/clojang/clojang/versions/0.6.0'>clojang 0.6.0-SNAPSHOT</a> for Erlang 21.0 (uses JInterface 1.9)</li></ul><p>Still coming up ...</p><ul><li>Similar updates for the JVM agent and the hi-level API (clojang-proper)</li><li>Port more Erlang/Java examples to LFE/Clojure</li><li>Demonstrate use with the Clojure Component library</li><li>Demonstrate managing throw-away JVM instances from Erlang/LFE, managed via JMX</li></ul>
           </div>
 
-          <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-            <div class="sidebar-module sidebar-module-inset">
-              <p class="social">
-                <a href="/atom.xml">
-                  <i class="fa fa-feed fa-lg first"></i>
-                </a>
-                <a href="http://twitter.com/clojang">
-                  <i class="fa fa-twitter fa-lg"></i>
-                </a>
-                <a href="http://github.com/clojang">
-                  <i class="fa fa-github fa-lg"></i>
-                </a>
-                <a href="http://clojang.slack.com">
-                  <i class="fa fa-slack fa-lg"></i>
-                </a>
-                <a href="https://groups.google.com/forum/#!forum/clojang">
-                  <i class="fa fa-envelope fa-lg last"></i>
-                </a>
-              </p>
-            </div>
-
-            <div class="sidebar-module">
-              <h4>Featured</h4>
-              <p>
-                <a href="/archives/2017-02/24-014224/clojang-jinterface-core-async.html">Clojang, JInterface, &amp; core.async</a>
-              </p>
-              <p>
-                <a href="/archives/2017-03/12-212549/clojang-mail-list-slack-channel.html">Clojang Mail List &amp; Slack Channel</a>
-              </p>
-              <p>
-                <a href="/archives/2017-03/01-235210/progress-towards-the-next-releases.html">Progress Towards the Next Releases</a>
-              </p>
-            </div>
-
-            <div class="sidebar-module">
-              <h4>Tags</h4>
-              <p>
-                
-                <a href="/tags/#agent">agent</a>
-                
-                <a href="/tags/#agents">agents</a>
-                
-                <a href="/tags/#announcements">announcements</a>
-                
-                <a href="/tags/#clojang">clojang</a>
-                
-                <a href="/tags/#clojure">clojure</a>
-                
-                <a href="/tags/#code">code</a>
-                
-                <a href="/tags/#core.async">core.async</a>
-                
-                <a href="/tags/#development">development</a>
-                
-                <a href="/tags/#erlang">erlang</a>
-                
-                <a href="/tags/#history">history</a>
-                
-                <a href="/tags/#internals">internals</a>
-                
-                <a href="/tags/#java">java</a>
-                
-                <a href="/tags/#jiface">jiface</a>
-                
-                <a href="/tags/#jinterface">jinterface</a>
-                
-                <a href="/tags/#lfe">lfe</a>
-                
-                <a href="/tags/#lfecljapp">lfecljapp</a>
-                
-                <a href="/tags/#libraries">libraries</a>
-                
-                <a href="/tags/#news">news</a>
-                
-                <a href="/tags/#social">social</a>
-                
-                <a href="/tags/#writing">writing</a>
-                
-                <a href="/tags/#zhang">zhang</a>
-                
-              </p>
-            </div>
-
-            <div class="sidebar-module">
-              <h4>Tweets</h4>
-              <p>
-                <a class="twitter-timeline" data-width="250" data-height="800" data-theme="dark" data-link-color="#58852b" href="https://twitter.com/clojang">clojang on Twitter</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-              </p>
-            </div>
+          
 
         </div>
 
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+          <div class="sidebar-module sidebar-module-inset">
+            <p class="social">
+              <a href="/atom.xml">
+                <i class="fa fa-feed fa-lg first"></i>
+              </a>
+              <a href="http://twitter.com/clojang">
+                <i class="fa fa-twitter fa-lg"></i>
+              </a>
+              <a href="http://github.com/clojang">
+                <i class="fa fa-github fa-lg"></i>
+              </a>
+              <a href="http://clojang.slack.com">
+                <i class="fa fa-slack fa-lg"></i>
+              </a>
+              <a href="https://groups.google.com/forum/#!forum/clojang">
+                <i class="fa fa-envelope fa-lg last"></i>
+              </a>
+            </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Category</h4>
+            <p>
+              <a href="/categories/#Releases">Releases</a>
+            </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Tags</h4>
+            <p>
+              
+              <a href="/tags/#agents">agents</a>
+              
+              <a href="/tags/#announcements">announcements</a>
+              
+              <a href="/tags/#clojure">clojure</a>
+              
+              <a href="/tags/#development">development</a>
+              
+              <a href="/tags/#erlang">erlang</a>
+              
+              <a href="/tags/#java">java</a>
+              
+              <a href="/tags/#libraries">libraries</a>
+              
+            </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Post Data</h4>
+            <p>Words: 196</p>
+            <p>Characters: 1626</p>
+            </p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Neighboring Posts</h4>
+            <div class="row">
+              <div class="col-xs-6">Previous</div>
+              <div class="col-xs-6">Next</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                
+                <a href="/archives/2018-07/17-191932/new-versions-of-jinterface-and-jiface-published-on-clojars.html">
+                  <i class="fa fa-arrow-circle-o-left fa-2x"
+                     aria-hidden="true"></i>
+                </a>
+                
+              </div>
+              <div class="col-xs-6">
+                
+                  <i class="fa fa-arrow-circle-o-right fa-2x nav-arrow-disabled"
+                     aria-hidden="true"></i>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+
+    </div>
     </div>
 
     </main>
