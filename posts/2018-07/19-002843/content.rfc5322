@@ -1,0 +1,35 @@
+Subject: Followup: New Versions of Clojang Agent and API Published on Clojars
+Subtitle:
+Excerpt:
+From: oubiwann
+Category: Releases
+Keywords: development, erlang, clojure, announcements, libraries, java, agents
+Comments:
+Content-Type: md
+
+As with the [post from the other day](/archives/2018-07/17-191932/new-versions-of-jinterface-and-jiface-published-on-clojars.html),
+tonight (this morning) has seen the two other core Clojang libraries get updates. The agent
+lib in particular is a cause for celebration, since there's been an out-standing issue
+with failing builds for the past year (a dep with AOT'ed classes was the primary suspect;
+unlike the vanilla class-not-found-due-to AOT'ed JAR file collisions, this one was particulaly
+nasty/unusual ... hadn't seen anything like it before). That issue is now closed and builds
+are successful again.
+
+This allowed me to pump out the following agent releases:
+
+* [agent 0.4.0](https://clojars.org/clojang/agent/versions/0.4.0) for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)
+* [agent 0.5.0](https://clojars.org/clojang/agent/versions/0.5.0) for Erlang 20.3 (uses JInterface 1.8.1)
+* [agent 0.6.0-SNAPSHOT](https://clojars.org/clojang/agent/versions/0.6.0) for Erlang 21.0 (uses JInterface 1.9)
+
+And clojang releases:
+
+* [clojang 0.4.0](https://clojars.org/clojang/clojang/versions/0.4.0) for Erlang 19.2 and 19.3 (uses JInterface 1.7.1)
+* [clojang 0.5.0](https://clojars.org/clojang/clojang/versions/0.5.0) for Erlang 20.3 (uses JInterface 1.8.1)
+* [clojang 0.6.0-SNAPSHOT](https://clojars.org/clojang/clojang/versions/0.6.0) for Erlang 21.0 (uses JInterface 1.9)
+
+Still coming up ...
+
+* Similar updates for the JVM agent and the hi-level API (clojang-proper)
+* Port more Erlang/Java examples to LFE/Clojure
+* Demonstrate use with the Clojure Component library
+* Demonstrate managing throw-away JVM instances from Erlang/LFE, managed via JMX
